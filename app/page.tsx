@@ -4,6 +4,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Timeline from "@/components/Timeline";
 import KPIs from "@/components/KPIs";
 import BlueprintFX from "@/components/BlueprintFX";
+import ParallaxGroup from "@/components/ParallaxGroup";
 
 export default function Page() {
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -23,15 +24,19 @@ export default function Page() {
   return (
     <>
       {/* Hero */}
-      <header className="container pt-14 pb-10 relative">
-        <BlueprintFX />
+      <header className="container pt-14 pb-10 relative overflow-hidden">
+        <BlueprintFX variant="bold" fullBleed />
 
         <div className="grid gap-8 md:grid-cols-12 items-center">
           <div className="md:col-span-7">
             <p className="text-sm uppercase tracking-widest text-gray-500">Finance × Programming</p>
-            <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
+
+            {/* 4) Gradient accent on name */}
+            <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight
+              bg-gradient-to-r from-emerald-300 via-cyan-300 to-emerald-300 bg-clip-text text-transparent">
               Yu-Hsuan (Sandy) Kao
             </h1>
+
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
               Finance & Data Analyst with international experience (Europe & Asia). Skilled in SAP FI, Excel/VBA, Python, R, and SQL.
               Improved reporting accuracy and workflows, ensured compliance, and delivered precise financial analytics.
@@ -48,14 +53,16 @@ export default function Page() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV</a>
+              {/* 3) Shimmer on primary CTA */}
+              <a href={`${base}/assets/CV.pdf`} className="btn btn-shimmer" download>Download CV</a>
               <Link href="/resume" className="btn-outline">Resume</Link>
               <Link href="/projects" className="btn-outline">View Projects</Link>
             </div>
           </div>
 
           <div className="md:col-span-5">
-            <div className="card">
+            {/* 6) Hairline border on skills card */}
+            <div className="card card-gradient">
               <h3 className="font-semibold">Skills at a glance</h3>
               <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
                 <div>
@@ -117,11 +124,20 @@ export default function Page() {
                 <strong>Long-term goal:</strong> grow into a finance systems and operations role that bridges accounting, engineering and data, leading projects that shorten the close and strengthen the control environment.
               </p>
 
-              {/* Interests: centered, equal-size pills with 2-line wrap */}
+              {/* Interests */}
               <div className="mt-6 pt-4 border-t border-gray-200/50 dark:border-gray-800/60 text-center">
                 <h3 className="font-semibold text-base uppercase tracking-wide">Interests</h3>
                 <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto">
-                  {interests.map(({ label, emoji }) => (
+                  {[
+                    { label: "Padel", emoji: "🎾" },
+                    { label: "Strength Training", emoji: "🏋️" },
+                    { label: "Bouldering", emoji: "🧗‍♀️" },
+                    { label: "Running", emoji: "🏃‍♀️" },
+                    { label: "Swimming", emoji: "🏊‍♀️" },
+                    { label: "Travel", emoji: "✈️" },
+                    { label: "Photography", emoji: "📷" },
+                    { label: "Video Editing", emoji: "🎬" },
+                  ].map(({ label, emoji }) => (
                     <span
                       key={label}
                       className="w-full h-[3.5rem] inline-flex items-center justify-center gap-2 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm font-medium px-3 text-center whitespace-normal break-words leading-snug"
@@ -133,63 +149,65 @@ export default function Page() {
                 </div>
 
                 <div className="mt-5 flex flex-wrap justify-center gap-3">
-                  <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV (PDF)</a>
+                  <a href={`${base}/assets/CV.pdf`} className="btn btn-shimmer" download>Download CV (PDF)</a>
                   <Link href="/projects" className="btn-outline">View Projects</Link>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: photos with captions */}
-          <div className="grid grid-cols-2 gap-3">
-            <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
-              <img
-                src={`${base}/assets/Sandy_portrait.jpg`}
-                alt="Sandy Kao — professional headshot"
-                className="absolute inset-0 h-full w-full object-cover object-top"
-                loading="lazy"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
-                <span className="text-[11px] sm:text-xs text-white/95">Work portrait</span>
-              </figcaption>
-            </figure>
+          {/* Right: photos with captions + 5) parallax */}
+          <ParallaxGroup>
+            <div className="grid grid-cols-2 gap-3">
+              <figure data-parallax="0.12" className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+                <img
+                  src={`${base}/assets/Sandy_portrait.jpg`}
+                  alt="Sandy Kao — professional headshot"
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                  <span className="text-[11px] sm:text-xs text-white/95">Work portrait</span>
+                </figcaption>
+              </figure>
 
-            <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
-              <img
-                src={`${base}/assets/Octoberfest.jpg`}
-                alt="With a friend at Frühlingsfest 2025 in Munich"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-                loading="lazy"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
-                <span className="text-[11px] sm:text-xs text-white/95">Frühlingsfest ’25 with a friend</span>
-              </figcaption>
-            </figure>
+              <figure data-parallax="0.18" className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+                <img
+                  src={`${base}/assets/Octoberfest.jpg`}
+                  alt="With a friend at Frühlingsfest 2025 in Munich"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                  <span className="text-[11px] sm:text-xs text-white/95">Frühlingsfest ’25 with a friend</span>
+                </figcaption>
+              </figure>
 
-            <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
-              <img
-                src={`${base}/assets/Surfing.jpg`}
-                alt="Surfing at O2 Surftown in Munich"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-                loading="lazy"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
-                <span className="text-[11px] sm:text-xs text-white/95">O2 Surftown, Munich</span>
-              </figcaption>
-            </figure>
+              <figure data-parallax="0.10" className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+                <img
+                  src={`${base}/assets/Surfing.jpg`}
+                  alt="Surfing at O2 Surftown in Munich"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                  <span className="text-[11px] sm:text-xs text-white/95">O2 Surftown, Munich</span>
+                </figcaption>
+              </figure>
 
-            <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
-              <img
-                src={`${base}/assets/Lake.jpg`}
-                alt="Wörthsee"
-                className="absolute inset-0 h-full w-full object-cover object-center"
-                loading="lazy"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
-                <span className="text-[11px] sm:text-xs text-white/95">Wörthsee</span>
-              </figcaption>
-            </figure>
-          </div>
+              <figure data-parallax="0.16" className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+                <img
+                  src={`${base}/assets/Lake.jpg`}
+                  alt="Wörthsee"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                  <span className="text-[11px] sm:text-xs text-white/95">Wörthsee</span>
+                </figcaption>
+              </figure>
+            </div>
+          </ParallaxGroup>
         </div>
       </Section>
 
