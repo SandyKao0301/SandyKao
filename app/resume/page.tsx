@@ -1,5 +1,4 @@
 import EmailLink from "@/components/EmailLink";
-import Image from "next/image";
 
 export const metadata = { title: "Resume — Sandy Kao" };
 
@@ -24,13 +23,10 @@ export default function ResumePage(){
 
           {/* Portrait (ensure file exists at /public/assets/Sandy_portrait.jpg) */}
           <div className="justify-self-end">
-            <Image
-              src="/assets/Sandy_portrait.jpg"
+            <img
+              src={`${base}/assets/Sandy_portrait.jpg`}
               alt="Sandy Kao — professional portrait"
-              width={260}
-              height={340}
               className="rounded-2xl border border-gray-200/50 dark:border-gray-800/50 object-cover aspect-[3/4] w-full max-w-[260px] print:max-w-[150px] print:rounded-md"
-              priority
             />
           </div>
         </header>
