@@ -9,38 +9,62 @@ export default function ResumePage(){
   return (
     <div className="container py-12 print:py-0">
       <div className="card max-w-4xl mx-auto">
-        {/* Header (portrait moved to Summary so text can wrap) */}
-        <header className="grid gap-4 items-start">
-          <div className="flex flex-col gap-1">
+        {/* Header with portrait + details on the left */}
+        <header className="grid gap-4 md:grid-cols-[1fr,260px] items-start">
+          <div className="md:pr-4">
             <h1 className="text-2xl font-semibold">Yu-Hsuan (Sandy) Kao</h1>
-            <div className="text-sm text-gray-600 dark:text-gray-400 flex flex-wrap items-center gap-3">
-              <span>Munich, Germany · <EmailLink /></span>
+
+            <h2 className="mt-3 font-semibold uppercase tracking-wide text-sm">Personal Details</h2>
+            <div className="mt-1 h-[2px] bg-gray-300 dark:bg-gray-700" />
+
+            <dl className="mt-3 grid grid-cols-[auto,1fr] gap-x-4 gap-y-2 text-sm">
+              <dt className="font-medium">Name</dt>
+              <dd>Yu-Hsuan, Kao (Sandy Kao)</dd>
+
+              <dt className="font-medium">Date of birth</dt>
+              <dd>01.03.2000</dd>
+
+              <dt className="font-medium">Place of birth</dt>
+              <dd>Taipei, Taiwan</dd>
+
+              <dt className="font-medium">Nationality</dt>
+              <dd>Taiwanese</dd>
+
+              <dt className="font-medium">Phone</dt>
+              <dd>+49 (0) 176 372 73895</dd>
+
+              <dt className="font-medium">Email</dt>
+              <dd><EmailLink /></dd>
+            </dl>
+
+            <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+              <span>Munich, Germany</span>
               <a className="btn-outline no-print" href={`${base}/assets/CV.pdf`} download>
                 Download PDF
               </a>
             </div>
           </div>
+
+          {/* Portrait */}
+          <div className="justify-self-end">
+            <img
+              src={`${base}/assets/Sandy_portrait.jpg`}
+              alt="Sandy Kao — professional portrait"
+              className="rounded-2xl border border-gray-200/50 dark:border-gray-800/50 object-cover aspect-[3/4] w-full max-w-[260px] print:max-w-[150px] print:rounded-md"
+            />
+          </div>
         </header>
 
-        {/* Professional Summary with wrapped portrait */}
+        {/* Professional Summary (below header, no wrapping) */}
         <section className="mt-6">
           <h2 className="font-semibold text-lg">Professional Summary</h2>
-
-          {/* Float on larger screens so text wraps; stack on mobile */}
-          <img
-            src={`${base}/assets/Sandy_portrait.jpg`}
-            alt="Sandy Kao — professional portrait"
-            className="sm:float-right sm:ml-4 sm:mb-2 w-[180px] sm:w-[220px] md:w-[260px] rounded-2xl border border-gray-200/50 dark:border-gray-800/50 object-cover aspect-[3/4] print:w-[150px] print:rounded-md"
-          />
-
           <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
             Finance graduate with international experience in reporting, risk analysis, and financial operations across Europe and Asia.
             Skilled in SAP, Excel/VBA, and financial data analytics, with proven success in improving workflows, ensuring compliance, and delivering precise reporting.
           </p>
         </section>
 
-        {/* Clear the float so following blocks start below the image */}
-        <section className="mt-6 clear-both">
+        <section className="mt-6">
           <h2 className="font-semibold text-lg">Experience</h2>
           <div className="mt-3 space-y-4 text-sm">
             <div>
