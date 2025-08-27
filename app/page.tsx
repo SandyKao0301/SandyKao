@@ -6,7 +6,7 @@ import Timeline from "@/components/Timeline";
 export default function Page() {
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-  // Interests for the pills inside About (split 4 / 4)
+  // Interests for the pills inside About
   const interests = [
     { label: "Padel", emoji: "🎾" },
     { label: "Strength Training", emoji: "🏋️" },
@@ -17,8 +17,6 @@ export default function Page() {
     { label: "Photography", emoji: "📷" },
     { label: "Video Editing", emoji: "🎬" },
   ];
-  const leftPills = interests.slice(0, 4);
-  const rightPills = interests.slice(4, 8);
 
   return (
     <>
@@ -83,45 +81,35 @@ export default function Page() {
         </div>
       </header>
 
-      {/* About (more personable, goals split, interests pills integrated) */}
+      {/* About */}
       <Section id="about" title="About" subtitle="Who I am and what I bring to finance + data roles.">
         <div className="grid gap-6 md:grid-cols-2">
-          {/* Left: bio + goals + interests pills */}
+          {/* Left: bio + goals + interests */}
           <div className="card">
             <div className="space-y-3 text-gray-700 dark:text-gray-300">
               <p>
                 Hi, I’m <strong>Yu-Hsuan (Sandy) Kao</strong>. I like taking messy spreadsheets and SAP exports and turning them into reports teams trust.
-                My sweet spot is where accounting meets automation. I use SAP FI, Excel/VBA, Python and SQL to speed up month-end, cut errors, and make checks easy to run.
+                My sweet spot is where accounting meets automation. I use SAP FI, Excel/VBA, Python and SQL to speed up month-end, cut errors, and keep checks easy for the people who run them.
               </p>
 
               <p>
-                I came to Germany in 2022 for my M.Sc. in Economics and Finance at the University of Tübingen, and to build an international career in finance operations and analytics.
+                I came to Germany in 2022 for my M.Sc. in Economics and Finance at the University of Tübingen and to build an international career in finance operations and analytics.
                 Working with SAP and time/payroll tools like ADP has let me ship changes that people actually feel in their daily work.
               </p>
 
               <p>
-                <strong>Near term goal:</strong> join a team where I can own reporting flows from SAP into Excel, SQL or Python, automate the boring parts, keep controls simple for users, and track the impact with clear metrics.
+                <strong>Near-term goal:</strong> join a team where I can own reporting flows from SAP into Excel, SQL or Python, automate the boring parts, keep controls simple for users, and track the impact with clear metrics.
               </p>
 
               <p>
-                <strong>Long term goal:</strong> grow into a finance systems and operations role that bridges accounting, engineering and data, leading projects that shorten the close and strengthen the control environment.
+                <strong>Long-term goal:</strong> grow into a finance systems and operations role that bridges accounting, engineering and data, leading projects that shorten the close and strengthen the control environment.
               </p>
 
-              {/* Interests pills split 4 / 4 */}
-              <div className="mt-4 grid grid-cols-2 gap-2">
-                <div className="space-y-2">
-                  {leftPills.map(({ label, emoji }) => (
-                    <span
-                      key={label}
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm"
-                    >
-                      <span aria-hidden>{emoji}</span>
-                      {label}
-                    </span>
-                  ))}
-                </div>
-                <div className="space-y-2">
-                  {rightPills.map(({ label, emoji }) => (
+              {/* Interests title + two rows of pills (4 per row) */}
+              <div className="mt-4">
+                <h3 className="font-semibold text-sm uppercase tracking-wide">Interests</h3>
+                <div className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {interests.map(({ label, emoji }) => (
                     <span
                       key={label}
                       className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm"
@@ -140,7 +128,7 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Right: photos with captions (kept compact and readable) */}
+          {/* Right: photos with captions */}
           <div className="grid grid-cols-2 gap-3">
             {/* Headshot */}
             <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
@@ -208,7 +196,7 @@ export default function Page() {
             href="/projects#month-end-automation"
             cta="View project"
           />
-        <ProjectCard
+          <ProjectCard
             title="Working-hours Compliance Tracker"
             subtitle="Validated HR hours against policy & labor limits; anomaly detection"
             tags={["ADP","Excel","Automation"]}
