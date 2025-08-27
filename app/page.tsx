@@ -49,31 +49,27 @@ export default function Page() {
                     <li>HGB / IFRS</li>
                     <li>GL Reconciliations</li>
                     <li>Payroll / ADP</li>
-                    <li>SAP (FI)</li>
                   </ul>
                 </div>
                 <div>
                   <div className="text-gray-500">Programming</div>
                   <ul className="mt-1 space-y-1">
                     <li>Python, R, SQL</li>
-                    <li>Excel VBA</li>
-                    <li>Data Cleaning & Viz</li>
+                    <li>VBA, MATLAB</li>
+                  </ul>
+                </div>
+                <div>
+                  <div className="text-gray-500">Quant &amp; Econometrics</div>
+                  <ul className="mt-1 space-y-1">
+                    <li>Stata, SAS</li>
+                    <li>Dynare</li>
                   </ul>
                 </div>
                 <div>
                   <div className="text-gray-500">Tools</div>
                   <ul className="mt-1 space-y-1">
-                    <li>MS Office, Google Sheets</li>
                     <li>SAP FI</li>
-                    <li>MATLAB, Stata, SAS, Dynare</li>
-                  </ul>
-                </div>
-                <div>
-                  <div className="text-gray-500">Languages</div>
-                  <ul className="mt-1 space-y-1">
-                    <li>Chinese (Native)</li>
-                    <li>English (C1)</li>
-                    <li>German (B1)</li>
+                    <li>MS Office, Google Sheets</li>
                   </ul>
                 </div>
               </div>
