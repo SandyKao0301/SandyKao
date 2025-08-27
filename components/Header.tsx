@@ -29,8 +29,6 @@ function NavLinks() {
       <Link href="/#projects" className="fancy-underline">Projects</Link>
       <Link href="/resume" className="fancy-underline">Resume</Link>
       <Link href="/projects" className="fancy-underline">Case Studies</Link>
-      <Link href="/legal/impressum" className="fancy-underline">Impressum</Link>
-      <Link href="/legal/datenschutz" className="fancy-underline">Datenschutz</Link>
     </>
   );
 }
