@@ -118,7 +118,7 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Photos — portrait-friendly tiles that show more of each image */}
+          {/* Photos — portrait-friendly tiles with captions */}
           <div className="grid grid-cols-2 gap-3">
             {/* Headshot */}
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
@@ -128,36 +128,56 @@ export default function Page() {
                 className="absolute inset-0 h-full w-full object-cover object-top"
                 loading="lazy"
               />
+              <div className="absolute inset-x-0 bottom-0">
+                <div className="bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                  <span className="text-[11px] sm:text-xs text-white/95">Work portrait</span>
+                </div>
+              </div>
             </div>
 
-            {/* Oktoberfest */}
+            {/* Frühlingsfest */}
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Octoberfest.jpg`}
-                alt="Sandy with friends at Oktoberfest"
+                alt="With a friend at Frühlingsfest 2025 in Munich"
                 className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
               />
+              <div className="absolute inset-x-0 bottom-0">
+                <div className="bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                  <span className="text-[11px] sm:text-xs text-white/95">Frühlingsfest ’25 — with a friend</span>
+                </div>
+              </div>
             </div>
 
-            {/* Surfing */}
+            {/* O2 Surftown */}
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Surfing.jpg`}
-                alt="Sandy surfing"
+                alt="Surfing at O2 Surftown in Munich"
                 className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
               />
+              <div className="absolute inset-x-0 bottom-0">
+                <div className="bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                  <span className="text-[11px] sm:text-xs text-white/95">O₂ Surftown — Munich</span>
+                </div>
+              </div>
             </div>
 
-            {/* Lake */}
+            {/* Wörthsee */}
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Lake.jpg`}
-                alt="Sandy at the lake"
+                alt="Wörthsee"
                 className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
               />
+              <div className="absolute inset-x-0 bottom-0">
+                <div className="bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                  <span className="text-[11px] sm:text-xs text-white/95">Wörthsee</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
