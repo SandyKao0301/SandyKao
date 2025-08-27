@@ -9,10 +9,20 @@ export default function ResumePage(){
   return (
     <div className="container py-12 print:py-0">
       <div className="card max-w-4xl mx-auto">
-        {/* Header with portrait + details on the left */}
+        {/* Header with details on the left and portrait on the right */}
         <header className="grid gap-4 md:grid-cols-[1fr,260px] items-start">
           <div className="md:pr-4">
-            <h1 className="text-2xl font-semibold">Yu-Hsuan (Sandy) Kao</h1>
+            {/* Name + Download button (moved here) */}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h1 className="text-2xl font-semibold">Yu-Hsuan (Sandy) Kao</h1>
+              <a
+                className="btn-outline no-print shrink-0"
+                href={`${base}/assets/CV.pdf`}
+                download
+              >
+                Download PDF
+              </a>
+            </div>
 
             <h2 className="mt-3 font-semibold uppercase tracking-wide text-sm">Personal Details</h2>
             <div className="mt-1 h-[2px] bg-gray-300 dark:bg-gray-700" />
@@ -37,11 +47,8 @@ export default function ResumePage(){
               <dd><EmailLink /></dd>
             </dl>
 
-            <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-              <span>Munich, Germany</span>
-              <a className="btn-outline no-print" href={`${base}/assets/CV.pdf`} download>
-                Download PDF
-              </a>
+            <div className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+              Munich, Germany
             </div>
           </div>
 
@@ -55,7 +62,7 @@ export default function ResumePage(){
           </div>
         </header>
 
-        {/* Professional Summary (below header, no wrapping) */}
+        {/* Professional Summary */}
         <section className="mt-6">
           <h2 className="font-semibold text-lg">Professional Summary</h2>
           <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
@@ -64,6 +71,7 @@ export default function ResumePage(){
           </p>
         </section>
 
+        {/* Experience */}
         <section className="mt-6">
           <h2 className="font-semibold text-lg">Experience</h2>
           <div className="mt-3 space-y-4 text-sm">
@@ -97,6 +105,7 @@ export default function ResumePage(){
           </div>
         </section>
 
+        {/* Education & Skills */}
         <section className="mt-6 grid sm:grid-cols-2 gap-6 text-sm">
           <div>
             <h2 className="font-semibold text-lg">Education</h2>
@@ -121,11 +130,13 @@ export default function ResumePage(){
           </div>
         </section>
 
+        {/* Coursework */}
         <section className="mt-6 text-sm">
           <h2 className="font-semibold text-lg">Coursework</h2>
           <p className="mt-2">CFA Level 1, Advanced Corporate Finance, Computational Macroeconomics, Continuous-time Derivatives Pricing, Applied Statistics</p>
         </section>
 
+        {/* Voluntary */}
         <section className="mt-6 text-sm">
           <h2 className="font-semibold text-lg">Voluntary & Practical Experience</h2>
           <ul className="list-disc ml-5 mt-2 space-y-1">
