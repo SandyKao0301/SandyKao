@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
 import Timeline from "@/components/Timeline";
 
-export default function Page(){
+export default function Page() {
   // Works both locally and on GitHub Pages (/SandyKao)
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -19,15 +19,18 @@ export default function Page(){
               Yu-Hsuan (Sandy) Kao
             </h1>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
-              Finance & Data Analyst with international experience (Europe & Asia). Skilled in SAP FI, Excel/VBA, Python, R, and SQL. 
+              Finance & Data Analyst with international experience (Europe & Asia). Skilled in SAP FI, Excel/VBA, Python, R, and SQL.
               Improved reporting accuracy and workflows, ensured compliance, and delivered precise financial analytics.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="#projects" className="btn">View Projects</Link>
               <Link href="/resume" className="btn-outline">Resume</Link>
-              <a href={`${base}/assets/CV.pdf`} className="btn-outline" download>Download CV (PDF)</a>
+              <a href={`${base}/assets/CV.pdf`} className="btn-outline" download>
+                Download CV (PDF)
+              </a>
             </div>
           </div>
+
           <div className="md:col-span-5">
             <div className="card">
               <h3 className="font-semibold">Skills at a glance</h3>
@@ -88,8 +91,9 @@ export default function Page(){
               <Link href="/projects" className="btn-outline">See case studies</Link>
             </div>
           </div>
+
+          {/* Photos (ensure files exist in /public/assets/) */}
           <div className="grid grid-cols-2 gap-3">
-            {/* Files must be in /public/assets/ with these exact names */}
             <Image
               src="/assets/Sandy_portrait.jpg"
               alt="Sandy Kao — professional headshot"
@@ -201,7 +205,9 @@ export default function Page(){
                 <div className="text-gray-500">Tamkang University, Taiwan · Sep 2018 – Jun 2022</div>
               </li>
             </ul>
-            <div className="mt-3 text-sm"><span className="font-medium">Coursework:</span> CFA Level 1, Advanced Corporate Finance, Computational Macroeconomics, Continuous-time Derivatives Pricing, Applied Statistics</div>
+            <div className="mt-3 text-sm">
+              <span className="font-medium">Coursework:</span> CFA Level 1, Advanced Corporate Finance, Computational Macroeconomics, Continuous-time Derivatives Pricing, Applied Statistics
+            </div>
           </div>
           <div className="card">
             <h3 className="font-semibold">Leadership & Research</h3>
@@ -229,15 +235,27 @@ export default function Page(){
 
       {/* Interests */}
       <Section title="Interests" subtitle="Padel, strength training, bouldering, running, swimming; travel, photography & video editing.">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
-          <div className="h-24 rounded-xl bg-gradient-to-tr from-emerald-400/40 to-transparent" />
-          <div className="h-24 rounded-xl bg-gradient-to-tr from-emerald-400/40 to-transparent" />
-          <div className="h-24 rounded-xl bg-gradient-to-tr from-emerald-400/40 to-transparent" />
-          <div className="h-24 rounded-xl bg-gradient-to-tr from-emerald-400/40 to-transparent" />
-          <div className="h-24 rounded-xl bg-gradient-to-tr from-emerald-400/40 to-transparent" />
-          <div className="h-24 rounded-xl bg-gradient-to-tr from-emerald-400/40 to-transparent" />
+        <div className="flex flex-wrap gap-2">
+          {[
+            { label: "Padel", emoji: "🎾" },
+            { label: "Strength Training", emoji: "🏋️" },
+            { label: "Bouldering", emoji: "🧗‍♀️" },
+            { label: "Running", emoji: "🏃‍♀️" },
+            { label: "Swimming", emoji: "🏊‍♀️" },
+            { label: "Travel", emoji: "✈️" },
+            { label: "Photography", emoji: "📷" },
+            { label: "Video Editing", emoji: "🎬" },
+          ].map(({ label, emoji }) => (
+            <span
+              key={label}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm"
+            >
+              <span aria-hidden>{emoji}</span>
+              {label}
+            </span>
+          ))}
         </div>
       </Section>
     </>
-  )
+  );
 }
