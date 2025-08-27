@@ -24,8 +24,8 @@ export default function Page() {
               {/* Green button: Download CV */}
               <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV</a>
               <Link href="/resume" className="btn-outline">Resume</Link>
-              {/* Not a duplicate anymore */}
-              <Link href="#projects" className="btn-outline">View Projects</Link>
+              {/* Go to the Projects page (not the on-page anchor) */}
+              <Link href="/projects" className="btn-outline">View Projects</Link>
             </div>
           </div>
 
@@ -86,7 +86,7 @@ export default function Page() {
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV (PDF)</a>
-              <Link href="/projects" className="btn-outline">See case studies</Link>
+              <Link href="/projects" className="btn-outline">View Projects</Link>
             </div>
           </div>
 
