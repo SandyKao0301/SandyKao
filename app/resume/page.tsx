@@ -9,8 +9,8 @@ export default function ResumePage(){
   return (
     <div className="container py-12 print:py-0">
       <div className="card max-w-4xl mx-auto">
-        {/* Header with portrait */}
-        <header className="grid gap-4 md:grid-cols-[1fr,260px] items-start">
+        {/* Header (portrait moved to Summary so text can wrap) */}
+        <header className="grid gap-4 items-start">
           <div className="flex flex-col gap-1">
             <h1 className="text-2xl font-semibold">Yu-Hsuan (Sandy) Kao</h1>
             <div className="text-sm text-gray-600 dark:text-gray-400 flex flex-wrap items-center gap-3">
@@ -20,26 +20,27 @@ export default function ResumePage(){
               </a>
             </div>
           </div>
-
-          {/* Portrait (ensure file exists at /public/assets/Sandy_portrait.jpg) */}
-          <div className="justify-self-end">
-            <img
-              src={`${base}/assets/Sandy_portrait.jpg`}
-              alt="Sandy Kao — professional portrait"
-              className="rounded-2xl border border-gray-200/50 dark:border-gray-800/50 object-cover aspect-[3/4] w-full max-w-[260px] print:max-w-[150px] print:rounded-md"
-            />
-          </div>
         </header>
 
+        {/* Professional Summary with wrapped portrait */}
         <section className="mt-6">
           <h2 className="font-semibold text-lg">Professional Summary</h2>
+
+          {/* Float on larger screens so text wraps; stack on mobile */}
+          <img
+            src={`${base}/assets/Sandy_portrait.jpg`}
+            alt="Sandy Kao — professional portrait"
+            className="sm:float-right sm:ml-4 sm:mb-2 w-[180px] sm:w-[220px] md:w-[260px] rounded-2xl border border-gray-200/50 dark:border-gray-800/50 object-cover aspect-[3/4] print:w-[150px] print:rounded-md"
+          />
+
           <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
             Finance graduate with international experience in reporting, risk analysis, and financial operations across Europe and Asia.
             Skilled in SAP, Excel/VBA, and financial data analytics, with proven success in improving workflows, ensuring compliance, and delivering precise reporting.
           </p>
         </section>
 
-        <section className="mt-6">
+        {/* Clear the float so following blocks start below the image */}
+        <section className="mt-6 clear-both">
           <h2 className="font-semibold text-lg">Experience</h2>
           <div className="mt-3 space-y-4 text-sm">
             <div>
