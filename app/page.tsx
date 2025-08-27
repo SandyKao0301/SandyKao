@@ -6,6 +6,20 @@ import Timeline from "@/components/Timeline";
 export default function Page() {
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
+  // Interests for the pills inside About (split 4 / 4)
+  const interests = [
+    { label: "Padel", emoji: "🎾" },
+    { label: "Strength Training", emoji: "🏋️" },
+    { label: "Bouldering", emoji: "🧗‍♀️" },
+    { label: "Running", emoji: "🏃‍♀️" },
+    { label: "Swimming", emoji: "🏊‍♀️" },
+    { label: "Travel", emoji: "✈️" },
+    { label: "Photography", emoji: "📷" },
+    { label: "Video Editing", emoji: "🎬" },
+  ];
+  const leftPills = interests.slice(0, 4);
+  const rightPills = interests.slice(4, 8);
+
   return (
     <>
       {/* Hero */}
@@ -21,10 +35,8 @@ export default function Page() {
               Improved reporting accuracy and workflows, ensured compliance, and delivered precise financial analytics.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              {/* Green button: Download CV */}
               <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV</a>
               <Link href="/resume" className="btn-outline">Resume</Link>
-              {/* Go to the Projects page (not the on-page anchor) */}
               <Link href="/projects" className="btn-outline">View Projects</Link>
             </div>
           </div>
@@ -71,45 +83,55 @@ export default function Page() {
         </div>
       </header>
 
-      {/* About */}
+      {/* About (more personable, goals split, interests pills integrated) */}
       <Section id="about" title="About" subtitle="Who I am and what I bring to finance + data roles.">
         <div className="grid gap-6 md:grid-cols-2">
+          {/* Left: bio + goals + interests pills */}
           <div className="card">
             <div className="space-y-3 text-gray-700 dark:text-gray-300">
               <p>
-                I’m <strong>Yu-Hsuan (Sandy) Kao</strong>, a Finance &amp; Data Analyst who likes turning messy
-                operational data into clean, auditable outputs. I work where <em>accounting</em> meets
-                <em> automation</em>—using SAP FI, Excel/VBA, Python and SQL to speed up month-end,
-                reduce errors, and make reporting easier to trust.
+                Hi, I’m <strong>Yu-Hsuan (Sandy) Kao</strong>. I like taking messy spreadsheets and SAP exports and turning them into reports teams trust.
+                My sweet spot is where accounting meets automation. I use SAP FI, Excel/VBA, Python and SQL to speed up month-end, cut errors, and make checks easy to run.
               </p>
 
               <p>
-                I moved to <strong>Germany in 2022</strong> for my M.Sc. in Economics &amp; Finance at the University of
-                Tübingen and to build an international career in finance operations and analytics. Being close
-                to Europe’s manufacturing and tech hubs has been ideal: I’ve been able to work with SAP,
-                payroll/time solutions (e.g., ADP), and cross-functional teams to deliver measurable
-                improvements.
+                I came to Germany in 2022 for my M.Sc. in Economics and Finance at the University of Tübingen, and to build an international career in finance operations and analytics.
+                Working with SAP and time/payroll tools like ADP has let me ship changes that people actually feel in their daily work.
               </p>
 
               <p>
-                What I enjoy most is owning a process end-to-end—mapping requirements with Accounting/HR,
-                building reliable automations, documenting controls, and handing over something teams can run
-                every month without stress.
+                <strong>Near term goal:</strong> join a team where I can own reporting flows from SAP into Excel, SQL or Python, automate the boring parts, keep controls simple for users, and track the impact with clear metrics.
               </p>
 
               <p>
-                <strong>Near-term goal:</strong> join a team where I can own reporting flows (SAP → Excel/SQL/Python),
-                modernize checks, and tighten compliance while keeping things simple for end users.
-                <strong> Longer-term:</strong> grow into a Finance Systems/Operations role that bridges accounting,
-                engineering, and data, leading projects that shorten the close and improve the control
-                environment.
+                <strong>Long term goal:</strong> grow into a finance systems and operations role that bridges accounting, engineering and data, leading projects that shorten the close and strengthen the control environment.
               </p>
 
-              <p>
-                Outside work I keep active—<em>padel, strength training, bouldering, running, swimming</em>—and
-                I love weekend trips, photography, and video editing. Living in Bavaria means lakes and the
-                Alps are never far, which is perfect for recharging after a busy month-end.
-              </p>
+              {/* Interests pills split 4 / 4 */}
+              <div className="mt-4 grid grid-cols-2 gap-2">
+                <div className="space-y-2">
+                  {leftPills.map(({ label, emoji }) => (
+                    <span
+                      key={label}
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm"
+                    >
+                      <span aria-hidden>{emoji}</span>
+                      {label}
+                    </span>
+                  ))}
+                </div>
+                <div className="space-y-2">
+                  {rightPills.map(({ label, emoji }) => (
+                    <span
+                      key={label}
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm"
+                    >
+                      <span aria-hidden>{emoji}</span>
+                      {label}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
               <div className="mt-4 flex flex-wrap gap-3">
                 <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV (PDF)</a>
@@ -118,67 +140,59 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Photos — portrait-friendly tiles with captions */}
+          {/* Right: photos with captions (kept compact and readable) */}
           <div className="grid grid-cols-2 gap-3">
             {/* Headshot */}
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+            <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Sandy_portrait.jpg`}
                 alt="Sandy Kao — professional headshot"
                 className="absolute inset-0 h-full w-full object-cover object-top"
                 loading="lazy"
               />
-              <div className="absolute inset-x-0 bottom-0">
-                <div className="bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
-                  <span className="text-[11px] sm:text-xs text-white/95">Work portrait</span>
-                </div>
-              </div>
-            </div>
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                <span className="text-[11px] sm:text-xs text-white/95">Work portrait</span>
+              </figcaption>
+            </figure>
 
             {/* Frühlingsfest */}
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+            <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Octoberfest.jpg`}
                 alt="With a friend at Frühlingsfest 2025 in Munich"
                 className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-x-0 bottom-0">
-                <div className="bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
-                  <span className="text-[11px] sm:text-xs text-white/95">Frühlingsfest ’25 — with a friend</span>
-                </div>
-              </div>
-            </div>
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                <span className="text-[11px] sm:text-xs text-white/95">Frühlingsfest ’25 with a friend</span>
+              </figcaption>
+            </figure>
 
             {/* O2 Surftown */}
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+            <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Surfing.jpg`}
                 alt="Surfing at O2 Surftown in Munich"
                 className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-x-0 bottom-0">
-                <div className="bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
-                  <span className="text-[11px] sm:text-xs text-white/95">O₂ Surftown — Munich</span>
-                </div>
-              </div>
-            </div>
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                <span className="text-[11px] sm:text-xs text-white/95">O2 Surftown, Munich</span>
+              </figcaption>
+            </figure>
 
             {/* Wörthsee */}
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+            <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Lake.jpg`}
                 alt="Wörthsee"
                 className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
               />
-              <div className="absolute inset-x-0 bottom-0">
-                <div className="bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
-                  <span className="text-[11px] sm:text-xs text-white/95">Wörthsee</span>
-                </div>
-              </div>
-            </div>
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-2 py-1.5">
+                <span className="text-[11px] sm:text-xs text-white/95">Wörthsee</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </Section>
@@ -194,7 +208,7 @@ export default function Page() {
             href="/projects#month-end-automation"
             cta="View project"
           />
-          <ProjectCard
+        <ProjectCard
             title="Working-hours Compliance Tracker"
             subtitle="Validated HR hours against policy & labor limits; anomaly detection"
             tags={["ADP","Excel","Automation"]}
@@ -290,30 +304,6 @@ export default function Page() {
               </li>
             </ul>
           </div>
-        </div>
-      </Section>
-
-      {/* Interests */}
-      <Section title="Interests">
-        <div className="flex flex-wrap gap-2">
-          {[
-            { label: "Padel", emoji: "🎾" },
-            { label: "Strength Training", emoji: "🏋️" },
-            { label: "Bouldering", emoji: "🧗‍♀️" },
-            { label: "Running", emoji: "🏃‍♀️" },
-            { label: "Swimming", emoji: "🏊‍♀️" },
-            { label: "Travel", emoji: "✈️" },
-            { label: "Photography", emoji: "📷" },
-            { label: "Video Editing", emoji: "🎬" },
-          ].map(({ label, emoji }) => (
-            <span
-              key={label}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm"
-            >
-              <span aria-hidden>{emoji}</span>
-              {label}
-            </span>
-          ))}
         </div>
       </Section>
     </>
