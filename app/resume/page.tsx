@@ -3,6 +3,9 @@ import EmailLink from "@/components/EmailLink";
 export const metadata = { title: "Resume — Sandy Kao" };
 
 export default function ResumePage(){
+  // Works locally and on GitHub Pages (/SandyKao)
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <div className="container py-12 print:py-0">
       <div className="card max-w-4xl mx-auto">
@@ -10,7 +13,9 @@ export default function ResumePage(){
           <h1 className="text-2xl font-semibold">Yu-Hsuan (Sandy) Kao</h1>
           <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-3">
             <span>Munich, Germany · <EmailLink /></span>
-            <a className="btn-outline no-print" href="/CV.pdf" download>Download PDF</a>
+            <a className="btn-outline no-print" href={`${base}/assets/CV.pdf`} download>
+              Download PDF
+            </a>
           </div>
         </header>
 
