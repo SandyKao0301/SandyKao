@@ -137,18 +137,21 @@ export default function Page() {
             kpi="−30% manual errors"
             tags={["SAP FI","Excel VBA","Automation"]}
             href="/projects#month-end-automation"
+            cta="View project"
           />
           <ProjectCard
             title="Working-hours Compliance Tracker"
             subtitle="Validated HR hours against policy & labor limits; anomaly detection"
             tags={["ADP","Excel","Automation"]}
             href="/projects#compliance-tracker"
+            cta="View project"
           />
           <ProjectCard
             title="DCC-GARCH Brexit Risk Study"
             subtitle="Modeled correlations and risk channels post-Brexit"
             tags={["Python","Risk Modeling","Time Series"]}
             href="/projects#dcc-garch"
+            cta="View project"
           />
         </div>
       </Section>
