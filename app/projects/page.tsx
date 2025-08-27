@@ -1,10 +1,10 @@
 import Section from "@/components/Section";
 
-export const metadata = { title: "Case Studies — Sandy Kao" };
+export const metadata = { title: "Projects — Sandy Kao" };
 
 export default function ProjectsPage(){
   return (
-    <Section title="Case Studies" subtitle="Deeper dives into selected finance × programming projects.">
+    <Section title="Projects">
       <div className="grid gap-6 md:grid-cols-2">
         {/* Month-end Automation */}
         <article className="card p-6">
@@ -19,10 +19,8 @@ export default function ProjectsPage(){
           <dl className="mt-4 grid grid-cols-[auto,1fr] gap-x-3 gap-y-2 text-sm">
             <dt className="font-medium">Context:</dt>
             <dd>Monthly close involved exporting SAP FI data and assembling reports manually.</dd>
-
             <dt className="font-medium">Approach:</dt>
             <dd>Designed Excel VBA macros to import SAP exports, validate columns, pivot, and render final sheets.</dd>
-
             <dt className="font-medium">Result:</dt>
             <dd>Reduced manual errors by <strong>30%</strong>; faster and more consistent close.</dd>
           </dl>
@@ -41,10 +39,8 @@ export default function ProjectsPage(){
           <dl className="mt-4 grid grid-cols-[auto,1fr] gap-x-3 gap-y-2 text-sm">
             <dt className="font-medium">Context:</dt>
             <dd>HR needed to verify recorded hours against policy and labor constraints.</dd>
-
             <dt className="font-medium">Approach:</dt>
             <dd>Built ADP → Excel automation to ingest timesheets, apply validation rules, flag anomalies, and export audit-ready CSV and summary.</dd>
-
             <dt className="font-medium">Result:</dt>
             <dd>Reliable anomaly detection; reduced manual checks.</dd>
           </dl>
@@ -63,10 +59,8 @@ export default function ProjectsPage(){
           <dl className="mt-4 grid grid-cols-[auto,1fr] gap-x-3 gap-y-2 text-sm">
             <dt className="font-medium">Context:</dt>
             <dd>Analyze post-Brexit market integration &amp; risk transmission.</dd>
-
             <dt className="font-medium">Approach:</dt>
             <dd>Estimated DCC-GARCH; visualized conditional correlations and stress periods.</dd>
-
             <dt className="font-medium">Result:</dt>
             <dd>Clear correlation dynamics; informed risk-mitigation discussion.</dd>
           </dl>
@@ -77,5 +71,5 @@ export default function ProjectsPage(){
         Note: When publishing code publicly, use <em>mocked</em> datasets to respect confidentiality.
       </p>
     </Section>
-  )
+  );
 }
