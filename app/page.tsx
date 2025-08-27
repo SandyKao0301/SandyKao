@@ -21,7 +21,8 @@ export default function Page() {
               Improved reporting accuracy and workflows, ensured compliance, and delivered precise financial analytics.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="#projects" className="btn">View Projects</Link>
+              {/* Changed: green button now downloads CV */}
+              <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV</a>
               <Link href="/resume" className="btn-outline">Resume</Link>
               <a href={`${base}/assets/CV.pdf`} className="btn-outline" download>Download CV (PDF)</a>
             </div>
@@ -88,12 +89,40 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Photos from /public/assets (case-sensitive) */}
+          {/* Photos — constrained to avoid stretching the section */}
           <div className="grid grid-cols-2 gap-3">
-            <img src={`${base}/assets/Sandy_portrait.jpg`} alt="Sandy Kao — professional headshot" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
-            <img src={`${base}/assets/Octoberfest.jpg`} alt="Sandy with friends at Oktoberfest" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
-            <img src={`${base}/assets/Surfing.jpg`} alt="Sandy surfing" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
-            <img src={`${base}/assets/Lake.jpg`} alt="Sandy at the lake" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+              <img
+                src={`${base}/assets/Sandy_portrait.jpg`}
+                alt="Sandy Kao — professional headshot"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+              <img
+                src={`${base}/assets/Octoberfest.jpg`}
+                alt="Sandy with friends at Oktoberfest"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+              <img
+                src={`${base}/assets/Surfing.jpg`}
+                alt="Sandy surfing"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+              <img
+                src={`${base}/assets/Lake.jpg`}
+                alt="Sandy at the lake"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </Section>
@@ -206,7 +235,7 @@ export default function Page() {
       </Section>
 
       {/* Interests */}
-      <Section title="Interests" subtitle="Padel, strength training, bouldering, running, swimming; travel, photography & video editing.">
+      <Section title="Interests">
         <div className="flex flex-wrap gap-2">
           {[
             { label: "Padel", emoji: "🎾" },
