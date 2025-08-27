@@ -1,9 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
 import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
 import Timeline from "@/components/Timeline";
 
 export default function Page(){
+  // Works both locally and on GitHub Pages (/SandyKao)
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <>
       {/* Hero */}
@@ -21,7 +25,7 @@ export default function Page(){
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="#projects" className="btn">View Projects</Link>
               <Link href="/resume" className="btn-outline">Resume</Link>
-              <a href="/CV.pdf" className="btn-outline" download>Download CV (PDF)</a>
+              <a href={`${base}/assets/CV.pdf`} className="btn-outline" download>Download CV (PDF)</a>
             </div>
           </div>
           <div className="md:col-span-5">
@@ -80,16 +84,40 @@ export default function Page(){
               and reliable anomaly detection in working-hours data.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
-              <a href="/CV.pdf" className="btn" download>Download CV (PDF)</a>
+              <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV (PDF)</a>
               <Link href="/projects" className="btn-outline">See case studies</Link>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            {/* Replace these with real photos placed in /public/photos/ */}
-            <img src="/photos/portrait.jpg" alt="Sandy Kao portrait" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
-            <img src="/photos/work.jpg" alt="Sandy working" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
-            <img src="/photos/hobby.jpg" alt="Sandy hobby" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
-            <img src="/photos/travel.jpg" alt="Travel" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
+            {/* Files must be in /public/assets/ with these exact names */}
+            <Image
+              src="/assets/Sandy_portrait.jpg"
+              alt="Sandy Kao — professional headshot"
+              width={800}
+              height={1000}
+              className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50"
+            />
+            <Image
+              src="/assets/Octoberfest.jpg"
+              alt="Sandy with friends at Oktoberfest"
+              width={800}
+              height={1000}
+              className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50"
+            />
+            <Image
+              src="/assets/Surfing.jpg"
+              alt="Sandy surfing"
+              width={800}
+              height={1000}
+              className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50"
+            />
+            <Image
+              src="/assets/Lake.jpg"
+              alt="Sandy at the lake"
+              width={800}
+              height={1000}
+              className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50"
+            />
           </div>
         </div>
       </Section>
