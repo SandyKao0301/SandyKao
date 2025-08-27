@@ -105,17 +105,17 @@ export default function Page() {
                 <strong>Long-term goal:</strong> grow into a finance systems and operations role that bridges accounting, engineering and data, leading projects that shorten the close and strengthen the control environment.
               </p>
 
-              {/* Interests: centered, separated, slightly larger & bold */}
+              {/* Interests: centered, separated; equal-size pills */}
               <div className="mt-6 pt-4 border-t border-gray-200/50 dark:border-gray-800/60 text-center">
                 <h3 className="font-semibold text-base uppercase tracking-wide">Interests</h3>
-                <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 justify-items-center">
+                <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto">
                   {interests.map(({ label, emoji }) => (
                     <span
                       key={label}
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-base font-semibold"
+                      className="w-full h-9 inline-flex items-center justify-center gap-2 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm font-medium"
                     >
-                      <span aria-hidden>{emoji}</span>
-                      {label}
+                      <span aria-hidden className="shrink-0">{emoji}</span>
+                      <span className="truncate">{label}</span>
                     </span>
                   ))}
                 </div>
