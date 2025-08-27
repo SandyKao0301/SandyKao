@@ -5,6 +5,7 @@ import Timeline from "@/components/Timeline";
 import KPIs from "@/components/KPIs";
 import BlueprintFX from "@/components/BlueprintFX";
 import ParallaxGroup from "@/components/ParallaxGroup";
+import AutomationShowcase from "@/components/AutomationShowcase";
 
 export default function Page() {
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -32,8 +33,10 @@ export default function Page() {
             <p className="text-sm uppercase tracking-widest text-gray-500">Finance × Programming</p>
 
             {/* 4) Gradient accent on name */}
-            <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight
-              bg-gradient-to-r from-emerald-300 via-cyan-300 to-emerald-300 bg-clip-text text-transparent">
+            <h1
+              className="mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight
+              bg-gradient-to-r from-emerald-300 via-cyan-300 to-emerald-300 bg-clip-text text-transparent"
+            >
               Yu-Hsuan (Sandy) Kao
             </h1>
 
@@ -54,7 +57,9 @@ export default function Page() {
 
             <div className="mt-6 flex flex-wrap gap-3">
               {/* 3) Shimmer on primary CTA */}
-              <a href={`${base}/assets/CV.pdf`} className="btn btn-shimmer" download>Download CV</a>
+              <a href={`${base}/assets/CV.pdf`} className="btn btn-shimmer" download>
+                Download CV
+              </a>
               <Link href="/resume" className="btn-outline">Resume</Link>
               <Link href="/projects" className="btn-outline">View Projects</Link>
             </div>
@@ -128,16 +133,7 @@ export default function Page() {
               <div className="mt-6 pt-4 border-t border-gray-200/50 dark:border-gray-800/60 text-center">
                 <h3 className="font-semibold text-base uppercase tracking-wide">Interests</h3>
                 <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto">
-                  {[
-                    { label: "Padel", emoji: "🎾" },
-                    { label: "Strength Training", emoji: "🏋️" },
-                    { label: "Bouldering", emoji: "🧗‍♀️" },
-                    { label: "Running", emoji: "🏃‍♀️" },
-                    { label: "Swimming", emoji: "🏊‍♀️" },
-                    { label: "Travel", emoji: "✈️" },
-                    { label: "Photography", emoji: "📷" },
-                    { label: "Video Editing", emoji: "🎬" },
-                  ].map(({ label, emoji }) => (
+                  {interests.map(({ label, emoji }) => (
                     <span
                       key={label}
                       className="w-full h-[3.5rem] inline-flex items-center justify-center gap-2 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm font-medium px-3 text-center whitespace-normal break-words leading-snug"
@@ -149,7 +145,9 @@ export default function Page() {
                 </div>
 
                 <div className="mt-5 flex flex-wrap justify-center gap-3">
-                  <a href={`${base}/assets/CV.pdf`} className="btn btn-shimmer" download>Download CV (PDF)</a>
+                  <a href={`${base}/assets/CV.pdf`} className="btn btn-shimmer" download>
+                    Download CV (PDF)
+                  </a>
                   <Link href="/projects" className="btn-outline">View Projects</Link>
                 </div>
               </div>
@@ -159,7 +157,10 @@ export default function Page() {
           {/* Right: photos with captions + 5) parallax */}
           <ParallaxGroup>
             <div className="grid grid-cols-2 gap-3">
-              <figure data-parallax="0.12" className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+              <figure
+                data-parallax="0.12"
+                className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50"
+              >
                 <img
                   src={`${base}/assets/Sandy_portrait.jpg`}
                   alt="Sandy Kao — professional headshot"
@@ -171,7 +172,10 @@ export default function Page() {
                 </figcaption>
               </figure>
 
-              <figure data-parallax="0.18" className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+              <figure
+                data-parallax="0.18"
+                className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50"
+              >
                 <img
                   src={`${base}/assets/Octoberfest.jpg`}
                   alt="With a friend at Frühlingsfest 2025 in Munich"
@@ -183,7 +187,10 @@ export default function Page() {
                 </figcaption>
               </figure>
 
-              <figure data-parallax="0.10" className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+              <figure
+                data-parallax="0.10"
+                className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50"
+              >
                 <img
                   src={`${base}/assets/Surfing.jpg`}
                   alt="Surfing at O2 Surftown in Munich"
@@ -195,7 +202,10 @@ export default function Page() {
                 </figcaption>
               </figure>
 
-              <figure data-parallax="0.16" className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+              <figure
+                data-parallax="0.16"
+                className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50"
+              >
                 <img
                   src={`${base}/assets/Lake.jpg`}
                   alt="Wörthsee"
@@ -218,21 +228,21 @@ export default function Page() {
             title="Month-end Automation"
             subtitle="Automated SAP → Excel reports with VBA to reduce manual steps & errors"
             kpi="−30% manual errors"
-            tags={["SAP FI","Excel VBA","Automation"]}
+            tags={["SAP FI", "Excel VBA", "Automation"]}
             href="/projects#month-end-automation"
             cta="View project"
           />
           <ProjectCard
             title="Working-hours Compliance Tracker"
             subtitle="Validated HR hours against policy & labor limits; anomaly detection"
-            tags={["ADP","Excel","Automation"]}
+            tags={["ADP", "Excel", "Automation"]}
             href="/projects#compliance-tracker"
             cta="View project"
           />
           <ProjectCard
             title="DCC-GARCH Brexit Risk Study"
             subtitle="Modeled correlations and risk channels post-Brexit"
-            tags={["Python","Risk Modeling","Time Series"]}
+            tags={["Python", "Risk Modeling", "Time Series"]}
             href="/projects#dcc-garch"
             cta="View project"
           />
@@ -241,41 +251,53 @@ export default function Page() {
 
       {/* Experience */}
       <Section title="Experience">
-        <Timeline items={[
-          {
-            role:"Accounting & Payroll Intern",
-            org:"Texas Instruments",
-            loc:"Freising, Germany",
-            period:"Aug 2024 – Aug 2025",
-            bullets:[
-              "Automated month-end reports using SAP/Excel (VBA), reducing manual errors by 30%.",
-              "Supported HR tracking employees’ working hours to ensure labor law compliance.",
-              "Prepared GL accounts and reconciliations under HGB/IFRS.",
-              "Served as Intern Chair; onboarding support and cross-department events."
-            ]
-          },
-          {
-            role:"Accounting Assistant",
-            org:"Mami Love (E-Commerce)",
-            loc:"Taipei, Taiwan",
-            period:"Sep 2021 – Aug 2022",
-            bullets:[
-              "Managed AP/AR, reconciling €700K+ in monthly transactions.",
-              "Achieved 100% on-time vendor payments by resolving invoice disputes (50+ partners).",
-              "Assisted in financial closings: ledger matching and credit card validation."
-            ]
-          },
-          {
-            role:"Bank Teller Intern",
-            org:"Taishin International Bank",
-            loc:"Taipei, Taiwan",
-            period:"Jul 2021 – Aug 2021",
-            bullets:[
-              "Processed high-volume transactions; fraud-prevention protocols.",
-              "Advised clients on account services."
-            ]
-          },
-        ]}/>
+        <div className="grid md:grid-cols-12 gap-6">
+          {/* Left: timeline (unchanged content) */}
+          <div className="md:col-span-8">
+            <Timeline
+              items={[
+                {
+                  role: "Accounting & Payroll Intern",
+                  org: "Texas Instruments",
+                  loc: "Freising, Germany",
+                  period: "Aug 2024 – Aug 2025",
+                  bullets: [
+                    "Automated month-end reports using SAP/Excel (VBA), reducing manual errors by 30%.",
+                    "Supported HR tracking employees’ working hours to ensure labor law compliance.",
+                    "Prepared GL accounts and reconciliations under HGB/IFRS.",
+                    "Served as Intern Chair; onboarding support and cross-department events.",
+                  ],
+                },
+                {
+                  role: "Accounting Assistant",
+                  org: "Mami Love (E-Commerce)",
+                  loc: "Taipei, Taiwan",
+                  period: "Sep 2021 – Aug 2022",
+                  bullets: [
+                    "Managed AP/AR, reconciling €700K+ in monthly transactions.",
+                    "Achieved 100% on-time vendor payments by resolving invoice disputes (50+ partners).",
+                    "Assisted in financial closings: ledger matching and credit card validation.",
+                  ],
+                },
+                {
+                  role: "Bank Teller Intern",
+                  org: "Taishin International Bank",
+                  loc: "Taipei, Taiwan",
+                  period: "Jul 2021 – Aug 2021",
+                  bullets: [
+                    "Processed high-volume transactions; fraud-prevention protocols.",
+                    "Advised clients on account services.",
+                  ],
+                },
+              ]}
+            />
+          </div>
+
+          {/* Right: visual showcase (sticky on desktop) */}
+          <aside className="md:col-span-4">
+            <AutomationShowcase />
+          </aside>
+        </div>
       </Section>
 
       {/* Education & Leadership */}
