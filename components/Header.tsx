@@ -9,7 +9,9 @@ export default function Header() {
         </Link>
 
         <details className="sm:hidden">
-          <summary className="cursor-pointer px-3 py-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Menu</summary>
+          <summary className="cursor-pointer px-3 py-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+            Menu
+          </summary>
           <div className="mt-2 space-y-2">
             <NavLinks />
           </div>
@@ -26,8 +28,9 @@ export default function Header() {
 function NavLinks() {
   return (
     <>
-      <Link href="/#projects" className="fancy-underline">Projects</Link>
+      <Link href="/#about" className="fancy-underline">About</Link>
       <Link href="/resume" className="fancy-underline">Resume</Link>
+      <Link href="/#projects" className="fancy-underline">Projects</Link>
       <Link href="/projects" className="fancy-underline">Case Studies</Link>
     </>
   );
