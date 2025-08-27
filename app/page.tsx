@@ -2,6 +2,8 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import ProjectCard from "@/components/ProjectCard";
 import Timeline from "@/components/Timeline";
+import KPIs from "@/components/KPIs";
+import BlueprintFX from "@/components/BlueprintFX";
 
 export default function Page() {
   const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -21,7 +23,9 @@ export default function Page() {
   return (
     <>
       {/* Hero */}
-      <header className="container pt-14 pb-10">
+      <header className="container pt-14 pb-10 relative">
+        <BlueprintFX />
+
         <div className="grid gap-8 md:grid-cols-12 items-center">
           <div className="md:col-span-7">
             <p className="text-sm uppercase tracking-widest text-gray-500">Finance × Programming</p>
@@ -32,6 +36,17 @@ export default function Page() {
               Finance & Data Analyst with international experience (Europe & Asia). Skilled in SAP FI, Excel/VBA, Python, R, and SQL.
               Improved reporting accuracy and workflows, ensured compliance, and delivered precise financial analytics.
             </p>
+
+            {/* KPIs */}
+            <div className="mt-6 max-w-xl">
+              <KPIs
+                items={[
+                  { label: "Manual errors reduced", value: -30, suffix: "%", spark: [-5, -10, -15, -22, -28, -30], decimals: 0 },
+                  { label: "On-time vendor payments", value: 100, suffix: "%", spark: [88, 92, 95, 97, 99, 100], decimals: 0 },
+                ]}
+              />
+            </div>
+
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV</a>
               <Link href="/resume" className="btn-outline">Resume</Link>
@@ -127,7 +142,6 @@ export default function Page() {
 
           {/* Right: photos with captions */}
           <div className="grid grid-cols-2 gap-3">
-            {/* Headshot */}
             <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Sandy_portrait.jpg`}
@@ -140,7 +154,6 @@ export default function Page() {
               </figcaption>
             </figure>
 
-            {/* Frühlingsfest */}
             <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Octoberfest.jpg`}
@@ -153,7 +166,6 @@ export default function Page() {
               </figcaption>
             </figure>
 
-            {/* O2 Surftown */}
             <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Surfing.jpg`}
@@ -166,7 +178,6 @@ export default function Page() {
               </figcaption>
             </figure>
 
-            {/* Wörthsee */}
             <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Lake.jpg`}
