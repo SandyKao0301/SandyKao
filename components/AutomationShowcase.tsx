@@ -1,154 +1,194 @@
 "use client";
 
 export default function AutomationShowcase() {
+  // layout constants
+  const w = 520;
+  const h = 260;
+
+  // node positions
+  const sap = { x: 70, y: 95, label: "SAP FI" };
+  const adp = { x: 70, y: 185, label: "ADP" };
+  const hub = { x: 240, y: 140, label: "Python / VBA / SQL" };
+  const checks = { x: 360, y: 140, label: "Checks & Pivot" };
+  const report = { x: 470, y: 140, label: "Report" };
+
   return (
     <div className="card card-gradient md:sticky md:top-[22vh] mx-auto w-full max-w-md">
-      <h3 className="font-semibold">Automation flow</h3>
-      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+      <h3 className="font-semibold text-lg">Automation flow</h3>
+      <p className="mt-1 text-sm text-gray-400">
         From source systems to a clean, auditable report.
       </p>
 
-      <div className="mt-4">
-        {/* Responsive SVG */}
-        <svg
-          viewBox="0 0 420 260"
-          className="w-full h-auto"
-          role="img"
-          aria-label="Data pipeline from SAP and ADP through automation into final report"
-        >
-          <defs>
-            {/* line color */}
-            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="rgb(16,185,129)" />
-              <stop offset="100%" stopColor="rgb(34,211,238)" />
-            </linearGradient>
+      <svg
+        viewBox={`0 0 ${w} ${h}`}
+        width="100%"
+        height="auto"
+        className="mt-4"
+        aria-hidden="true"
+      >
+        {/* gentle vignette */}
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%">
+            <stop offset="0%" stopColor="rgba(16,185,129,.35)" />
+            <stop offset="100%" stopColor="transparent" />
+          </radialGradient>
+        </defs>
 
-            {/* node glow */}
-            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="rgba(16,185,129,.9)" />
-              <stop offset="100%" stopColor="rgba(16,185,129,0)" />
-            </radialGradient>
-          </defs>
+        {/* pipes */}
+        <path
+          className="pipe"
+          d={`M${sap.x + 18},${sap.y}
+             C ${sap.x + 90},${sap.y - 10}
+               ${hub.x - 70},${hub.y - 30}
+               ${hub.x - 8},${hub.y - 8}`}
+          stroke="rgba(34,211,238,.9)"
+          fill="none"
+        />
+        <path
+          className="pipe"
+          d={`M${adp.x + 18},${adp.y}
+             C ${adp.x + 90},${adp.y + 10}
+               ${hub.x - 70},${hub.y + 30}
+               ${hub.x - 8},${hub.y + 8}`}
+          stroke="rgba(34,211,238,.9)"
+          fill="none"
+        />
+        <line
+          className="pipe straight"
+          x1={hub.x + 18}
+          y1={hub.y}
+          x2={checks.x - 20}
+          y2={checks.y}
+          stroke="rgba(34,211,238,.9)"
+        />
+        <line
+          className="pipe straight"
+          x1={checks.x + 18}
+          y1={checks.y}
+          x2={report.x - 24}
+          y2={report.y}
+          stroke="rgba(34,211,238,.9)"
+        />
 
-          {/* CONNECTIONS (animated dashed strokes) */}
-          <g
-            fill="none"
-            stroke="url(#grad)"
-            strokeWidth="3"
-            strokeLinecap="round"
-            className="pipe"
-          >
-            {/* SAP → Automate */}
-            <path d="M90 70 C 150 70, 160 70, 210 95" />
-            {/* ADP → Automate */}
-            <path d="M90 180 C 150 180, 160 180, 210 155" />
-            {/* Automate → Checks */}
-            <path d="M210 125 C 260 125, 280 125, 310 125" />
-            {/* Checks → Report */}
-            <path d="M310 125 C 340 125, 360 125, 380 125" />
+        {/* left nodes */}
+        <Node x={sap.x} y={sap.y} label={sap.label} />
+        <Node x={adp.x} y={adp.y} label={adp.label} />
+
+        {/* hub node (target icon, perfectly centered) */}
+        <g transform={`translate(${hub.x}, ${hub.y})`} className="node">
+          <circle r="22" fill="url(#glow)" />
+          <circle r="14" fill="rgba(16,185,129,.25)" />
+          <circle r="9" fill="rgba(16,185,129,.45)" />
+          <g className="hub-icon">
+            <circle r="7.2" fill="none" stroke="white" strokeWidth="1.5" />
+            <circle r="3.2" fill="white" />
           </g>
+        </g>
+        <Label x={hub.x} y={hub.y + 30} text={hub.label} />
 
-          {/* NODES */}
-          {/* SAP */}
-          <g transform="translate(70,70)">
-            <circle r="18" fill="url(#glow)" />
-            <circle r="10" className="node" />
-            <text y="36" textAnchor="middle" className="label">SAP FI</text>
-          </g>
+        {/* right nodes */}
+        <Node x={checks.x} y={checks.y} label={checks.label} />
+        <RoundedBox x={report.x} y={report.y} />
+        <Label x={report.x} y={report.y + 30} text={report.label} />
+      </svg>
 
-          {/* ADP */}
-          <g transform="translate(70,180)">
-            <circle r="18" fill="url(#glow)" />
-            <circle r="10" className="node" />
-            <text y="36" textAnchor="middle" className="label">ADP</text>
-          </g>
-
-          {/* AUTOMATE */}
-          <g transform="translate(210,125)">
-            <circle r="26" fill="url(#glow)" />
-            <circle r="14" className="node hub" />
-            <text y="38" textAnchor="middle" className="label">Python / VBA / SQL</text>
-            {/* tiny gear */}
-            <g className="gear" transform="translate(-2,-2)">
-              <circle r="6" fill="none" stroke="currentColor" />
-              <g stroke="currentColor">
-                <path d="M0,-9 v4" />
-                <path d="M0,9 v-4" />
-                <path d="M-9,0 h4" />
-                <path d="M9,0 h-4" />
-                <path d="M6.3,6.3 l-3,-3" />
-                <path d="M-6.3,-6.3 l3,3" />
-                <path d="M6.3,-6.3 l-3,3" />
-                <path d="M-6.3,6.3 l3,-3" />
-              </g>
-            </g>
-          </g>
-
-          {/* CHECKS */}
-          <g transform="translate(310,125)">
-            <circle r="20" fill="url(#glow)" />
-            <circle r="12" className="node" />
-            <text y="36" textAnchor="middle" className="label">Checks &amp; Pivot</text>
-          </g>
-
-          {/* REPORT */}
-          <g transform="translate(380,125)">
-            <rect x="-14" y="-10" width="28" height="20" rx="3" className="report" />
-            <text y="36" textAnchor="middle" className="label">Report</text>
-          </g>
-        </svg>
-      </div>
-
-      <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
-        Typical run: import → validate → reconcile → summarize. Re-usable, documented, auditable.
+      <p className="mt-4 text-[13px] text-gray-400">
+        Typical run: import → validate → reconcile → summarize. Re-usable,
+        documented, auditable.
       </p>
 
-      {/* Local styles & motion control */}
       <style jsx>{`
-        .label {
-          font-size: 11px;
-          fill: rgba(255,255,255,.85);
+        .pipe {
+          stroke-width: 3;
+          stroke-dasharray: 6 8;
+          animation: dash 3.4s linear infinite;
+          filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.35));
+        }
+        .straight {
+          stroke-dasharray: 10 10;
         }
         .node {
-          fill: rgba(16,185,129,.9);
-          stroke: rgba(255,255,255,.6);
-          stroke-width: 1;
-          animation: pulse 2.2s ease-in-out infinite;
+          filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.45));
         }
-        .hub { animation-duration: 1.8s; }
-        .report {
-          fill: rgba(16,185,129,.15);
-          stroke: rgba(34,211,238,.7);
-          stroke-width: 2;
-        }
-        .pipe path {
-          stroke-dasharray: 6 10;
-          stroke-dashoffset: 240;
-          animation: dash 4.5s linear infinite;
-        }
-        .pipe path:nth-child(2) { animation-delay: .6s; }
-        .pipe path:nth-child(3) { animation-delay: 1.2s; }
-        .pipe path:nth-child(4) { animation-delay: 1.8s; }
-
-        .gear {
-          color: rgba(255,255,255,.75);
-          animation: spin 6s linear infinite;
+        .hub-icon {
+          animation: hubPulse 2.4s ease-in-out infinite;
+          transform-origin: 0 0;
         }
 
-        @keyframes dash { to { stroke-dashoffset: 0; } }
-        @keyframes pulse {
-          0%,100% { r: 10; opacity: .85; }
-          50%     { r: 13; opacity: 1; }
+        @keyframes dash {
+          to {
+            stroke-dashoffset: -80;
+          }
         }
-        @keyframes spin { to { transform: rotate(360deg) translate(-2px,-2px); } }
+        @keyframes hubPulse {
+          0%,
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.06);
+            opacity: 0.96;
+          }
+        }
 
-        /* Respect reduced motion */
+        /* Respect user preference */
         @media (prefers-reduced-motion: reduce) {
-          .pipe path,
-          .node,
-          .gear { animation: none !important; }
+          .pipe,
+          .hub-icon {
+            animation: none !important;
+          }
         }
       `}</style>
     </div>
+  );
+}
+
+/* ---- tiny helpers ------------------------------------------------------- */
+
+function Node({ x, y, label }: { x: number; y: number; label: string }) {
+  return (
+    <>
+      <g transform={`translate(${x}, ${y})`} className="node">
+        <circle r="18" fill="url(#glow)" />
+        <circle r="12" fill="rgba(16,185,129,.35)" />
+      </g>
+      <Label x={x} y={y + 30} text={label} />
+    </>
+  );
+}
+
+function Label({ x, y, text }: { x: number; y: number; text: string }) {
+  return (
+    <text
+      x={x}
+      y={y}
+      textAnchor="middle"
+      fontSize="12.5"
+      fill="rgba(255,255,255,.92)"
+      style={{ fontWeight: 500 }}
+    >
+      {text}
+    </text>
+  );
+}
+
+function RoundedBox({ x, y }: { x: number; y: number }) {
+  const w = 34,
+    h = 26,
+    r = 6;
+  return (
+    <rect
+      x={x - w / 2}
+      y={y - h / 2}
+      width={w}
+      height={h}
+      rx={r}
+      ry={r}
+      fill="none"
+      stroke="rgba(34,211,238,.85)"
+      strokeWidth="3"
+      className="node"
+    />
   );
 }
