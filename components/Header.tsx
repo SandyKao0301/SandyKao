@@ -30,8 +30,7 @@ function NavLinks() {
     <>
       <Link href="/#about" className="fancy-underline">About</Link>
       <Link href="/resume" className="fancy-underline">Resume</Link>
-      <Link href="/#projects" className="fancy-underline">Projects</Link>
-      <Link href="/projects" className="fancy-underline">Case Studies</Link>
+      <Link href="/projects" className="fancy-underline">Projects</Link>
     </>
   );
 }
