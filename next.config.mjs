@@ -1,4 +1,4 @@
-// next.config.mjs — deploy to https://USERNAME.github.io/SandyKao/
+// next.config.mjs
 const isProd = process.env.NODE_ENV === 'production';
 const repo = 'SandyKao';
 
@@ -8,4 +8,5 @@ export default {
   basePath: isProd ? `/${repo}` : '',
   assetPrefix: isProd ? `/${repo}/` : '',
   trailingSlash: true,
+  env: { NEXT_PUBLIC_BASE_PATH: isProd ? `/${repo}` : '' }
 };
