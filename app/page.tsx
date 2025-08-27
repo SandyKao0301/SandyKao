@@ -90,37 +90,44 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Photos — constrained to avoid stretching the section */}
+          {/* Photos — portrait-friendly tiles that show more of each image */}
           <div className="grid grid-cols-2 gap-3">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+            {/* Headshot */}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Sandy_portrait.jpg`}
                 alt="Sandy Kao — professional headshot"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-top"
                 loading="lazy"
               />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+
+            {/* Oktoberfest */}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Octoberfest.jpg`}
                 alt="Sandy with friends at Oktoberfest"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
               />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+
+            {/* Surfing */}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Surfing.jpg`}
                 alt="Sandy surfing"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
               />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
+
+            {/* Lake */}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-gray-200/30 dark:border-gray-800/50">
               <img
                 src={`${base}/assets/Lake.jpg`}
                 alt="Sandy at the lake"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
               />
             </div>
