@@ -19,12 +19,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
-      # Use npm install (no lockfile required)
-      - run: npm install
+          node-version: 20        # ⬅ no cache (so no lockfile required)
+      - run: npm install          # ok without lockfile
       - run: npm run build && npm run export
-      # Prevent Jekyll from ignoring the _next folder
       - run: touch ./out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
