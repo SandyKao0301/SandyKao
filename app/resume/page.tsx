@@ -7,9 +7,10 @@ export default function ResumePage(){
     <div className="container py-12 print:py-0">
       <div className="card max-w-4xl mx-auto">
         <header className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-          <h1 className="text-2xl font-semibold">Yu‑Hsuan (Sandy) Kao</h1>
-          <div className="text-sm text-gray-600 dark:text-gray-400">
-            Munich, Germany · <EmailLink />
+          <h1 className="text-2xl font-semibold">Yu-Hsuan (Sandy) Kao</h1>
+          <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-3">
+            <span>Munich, Germany · <EmailLink /></span>
+            <a className="btn-outline no-print" href="/CV.pdf" download>Download PDF</a>
           </div>
         </header>
 
@@ -28,18 +29,18 @@ export default function ResumePage(){
               <div className="font-medium">Accounting & Payroll Intern — Texas Instruments</div>
               <div className="text-gray-500">Freising, Germany · Aug 2024 – Aug 2025</div>
               <ul className="list-disc ml-5 mt-2 space-y-1">
-                <li>Automated month‑end reports using SAP/Excel (VBA), reducing manual errors by 30%.</li>
+                <li>Automated month-end reports using SAP/Excel (VBA), reducing manual errors by 30%.</li>
                 <li>Supported HR tracking employees’ working hours to ensure labor law compliance.</li>
                 <li>Prepared general ledger account and reconciliations under HGB/IFRS.</li>
                 <li>Served as Intern Chair with onboarding support and events to strengthen team collaboration.</li>
               </ul>
             </div>
             <div>
-              <div className="font-medium">Accounting Assistant — Mami Love (E‑Commerce)</div>
+              <div className="font-medium">Accounting Assistant — Mami Love (E-Commerce)</div>
               <div className="text-gray-500">Taipei, Taiwan · Sep 2021 – Aug 2022</div>
               <ul className="list-disc ml-5 mt-2 space-y-1">
                 <li>Managed accounts payable/receivable, reconciling €700K+ in monthly transactions.</li>
-                <li>Achieved 100% on‑time vendor payments by resolving invoice disputes with 50+ partners.</li>
+                <li>Achieved 100% on-time vendor payments by resolving invoice disputes with 50+ partners.</li>
                 <li>Assisted in financial closings ledger matching and credit card validation.</li>
               </ul>
             </div>
@@ -47,7 +48,7 @@ export default function ResumePage(){
               <div className="font-medium">Bank Teller Intern — Taishin International Bank</div>
               <div className="text-gray-500">Taipei, Taiwan · Jul 2021 – Aug 2021</div>
               <ul className="list-disc ml-5 mt-2 space-y-1">
-                <li>Processed high‑volume transactions and advised clients on account services.</li>
+                <li>Processed high-volume transactions and advised clients on account services.</li>
                 <li>Executed accurate cash handling and strict fraud prevention protocols.</li>
               </ul>
             </div>
@@ -80,7 +81,7 @@ export default function ResumePage(){
 
         <section className="mt-6 text-sm">
           <h2 className="font-semibold text-lg">Coursework</h2>
-          <p className="mt-2">CFA Level 1, Advanced Corporate Finance, Computational Macroeconomics, Continuous‑time Derivatives Pricing, Applied Statistics</p>
+          <p className="mt-2">CFA Level 1, Advanced Corporate Finance, Computational Macroeconomics, Continuous-time Derivatives Pricing, Applied Statistics</p>
         </section>
 
         <section className="mt-6 text-sm">
