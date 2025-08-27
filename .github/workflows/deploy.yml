@@ -21,8 +21,11 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm ci
+      # Use npm install (no lockfile required)
+      - run: npm install
       - run: npm run build && npm run export
+      # Prevent Jekyll from ignoring the _next folder
+      - run: touch ./out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
