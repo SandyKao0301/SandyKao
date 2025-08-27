@@ -46,10 +46,6 @@ export default function ResumePage(){
               <dt className="font-medium">Email</dt>
               <dd><EmailLink /></dd>
             </dl>
-
-            <div className="mt-3 text-sm text-gray-600 dark:text-gray-400">
-              Munich, Germany
-            </div>
           </div>
 
           {/* Portrait */}
@@ -147,7 +143,7 @@ export default function ResumePage(){
         </section>
 
         <footer className="mt-8 text-xs text-gray-500">
-          Updated: Munich, 26.08.2025
+          Updated: 26.08.2025
         </footer>
       </div>
     </div>
