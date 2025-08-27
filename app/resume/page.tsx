@@ -1,4 +1,5 @@
 import EmailLink from "@/components/EmailLink";
+import Image from "next/image";
 
 export const metadata = { title: "Resume — Sandy Kao" };
 
@@ -9,13 +10,28 @@ export default function ResumePage(){
   return (
     <div className="container py-12 print:py-0">
       <div className="card max-w-4xl mx-auto">
-        <header className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-          <h1 className="text-2xl font-semibold">Yu-Hsuan (Sandy) Kao</h1>
-          <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-3">
-            <span>Munich, Germany · <EmailLink /></span>
-            <a className="btn-outline no-print" href={`${base}/assets/CV.pdf`} download>
-              Download PDF
-            </a>
+        {/* Header with portrait */}
+        <header className="grid gap-4 md:grid-cols-[1fr,260px] items-start">
+          <div className="flex flex-col gap-1">
+            <h1 className="text-2xl font-semibold">Yu-Hsuan (Sandy) Kao</h1>
+            <div className="text-sm text-gray-600 dark:text-gray-400 flex flex-wrap items-center gap-3">
+              <span>Munich, Germany · <EmailLink /></span>
+              <a className="btn-outline no-print" href={`${base}/assets/CV.pdf`} download>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          {/* Portrait (ensure file exists at /public/assets/Sandy_portrait.jpg) */}
+          <div className="justify-self-end">
+            <Image
+              src="/assets/Sandy_portrait.jpg"
+              alt="Sandy Kao — professional portrait"
+              width={260}
+              height={340}
+              className="rounded-2xl border border-gray-200/50 dark:border-gray-800/50 object-cover aspect-[3/4] w-full max-w-[260px] print:max-w-[150px] print:rounded-md"
+              priority
+            />
           </div>
         </header>
 
@@ -46,7 +62,7 @@ export default function ResumePage(){
               <ul className="list-disc ml-5 mt-2 space-y-1">
                 <li>Managed accounts payable/receivable, reconciling €700K+ in monthly transactions.</li>
                 <li>Achieved 100% on-time vendor payments by resolving invoice disputes with 50+ partners.</li>
-                <li>Assisted in financial closings ledger matching and credit card validation.</li>
+                <li>Assisted in financial closings: ledger matching and credit card validation.</li>
               </ul>
             </div>
             <div>
