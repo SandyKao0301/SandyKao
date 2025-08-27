@@ -105,25 +105,25 @@ export default function Page() {
                 <strong>Long-term goal:</strong> grow into a finance systems and operations role that bridges accounting, engineering and data, leading projects that shorten the close and strengthen the control environment.
               </p>
 
-              {/* Interests title + two rows of pills (4 per row) */}
-              <div className="mt-4">
-                <h3 className="font-semibold text-sm uppercase tracking-wide">Interests</h3>
-                <div className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {/* Interests: centered, separated, slightly larger & bold */}
+              <div className="mt-6 pt-4 border-t border-gray-200/50 dark:border-gray-800/60 text-center">
+                <h3 className="font-semibold text-base uppercase tracking-wide">Interests</h3>
+                <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 justify-items-center">
                   {interests.map(({ label, emoji }) => (
                     <span
                       key={label}
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-sm"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-gray-200/40 dark:border-gray-800/60 bg-white/5 text-base font-semibold"
                     >
                       <span aria-hidden>{emoji}</span>
                       {label}
                     </span>
                   ))}
                 </div>
-              </div>
 
-              <div className="mt-4 flex flex-wrap gap-3">
-                <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV (PDF)</a>
-                <Link href="/projects" className="btn-outline">View Projects</Link>
+                <div className="mt-5 flex flex-wrap justify-center gap-3">
+                  <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV (PDF)</a>
+                  <Link href="/projects" className="btn-outline">View Projects</Link>
+                </div>
               </div>
             </div>
           </div>
