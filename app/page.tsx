@@ -21,10 +21,11 @@ export default function Page() {
               Improved reporting accuracy and workflows, ensured compliance, and delivered precise financial analytics.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              {/* Changed: green button now downloads CV */}
+              {/* Green button: Download CV */}
               <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV</a>
               <Link href="/resume" className="btn-outline">Resume</Link>
-              <a href={`${base}/assets/CV.pdf`} className="btn-outline" download>Download CV (PDF)</a>
+              {/* Not a duplicate anymore */}
+              <Link href="#projects" className="btn-outline">View Projects</Link>
             </div>
           </div>
 
@@ -140,13 +141,13 @@ export default function Page() {
           <ProjectCard
             title="Working-hours Compliance Tracker"
             subtitle="Validated HR hours against policy & labor limits; anomaly detection"
-            tags={["Python","pandas","Excel"]}
+            tags={["ADP","Excel","Automation"]}
             href="/projects#compliance-tracker"
           />
           <ProjectCard
             title="DCC-GARCH Brexit Risk Study"
             subtitle="Modeled correlations and risk channels post-Brexit"
-            tags={["R","Python","Time Series"]}
+            tags={["Python","Risk Modeling","Time Series"]}
             href="/projects#dcc-garch"
           />
         </div>
