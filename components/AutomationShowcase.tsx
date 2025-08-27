@@ -2,7 +2,7 @@
 
 export default function AutomationShowcase() {
   return (
-    <div className="card card-gradient sticky top-24">
+    <div className="card card-gradient md:sticky md:top-[22vh] mx-auto w-full max-w-md">
       <h3 className="font-semibold">Automation flow</h3>
       <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
         From source systems to a clean, auditable report.
