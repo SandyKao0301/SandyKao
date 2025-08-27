@@ -75,18 +75,46 @@ export default function Page() {
       <Section id="about" title="About" subtitle="Who I am and what I bring to finance + data roles.">
         <div className="grid gap-6 md:grid-cols-2">
           <div className="card">
-            <p className="text-gray-700 dark:text-gray-300">
-              I’m <strong>Yu-Hsuan (Sandy) Kao</strong>, a Finance & Data Analyst with experience in Europe and Asia.
-              I work at the intersection of <em>accounting</em> and <em>automation</em>—using SAP FI, Excel/VBA, Python, and SQL
-              to make month-end closes faster, reports more accurate, and compliance checks easier.
-            </p>
-            <p className="mt-3 text-gray-700 dark:text-gray-300">
-              I like measurable outcomes: −30% manual errors on month-end, 100% on-time vendor payments,
-              and reliable anomaly detection in working-hours data.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV (PDF)</a>
-              <Link href="/projects" className="btn-outline">View Projects</Link>
+            <div className="space-y-3 text-gray-700 dark:text-gray-300">
+              <p>
+                I’m <strong>Yu-Hsuan (Sandy) Kao</strong>, a Finance &amp; Data Analyst who likes turning messy
+                operational data into clean, auditable outputs. I work where <em>accounting</em> meets
+                <em> automation</em>—using SAP FI, Excel/VBA, Python and SQL to speed up month-end,
+                reduce errors, and make reporting easier to trust.
+              </p>
+
+              <p>
+                I moved to <strong>Germany in 2022</strong> for my M.Sc. in Economics &amp; Finance at the University of
+                Tübingen and to build an international career in finance operations and analytics. Being close
+                to Europe’s manufacturing and tech hubs has been ideal: I’ve been able to work with SAP,
+                payroll/time solutions (e.g., ADP), and cross-functional teams to deliver measurable
+                improvements.
+              </p>
+
+              <p>
+                What I enjoy most is owning a process end-to-end—mapping requirements with Accounting/HR,
+                building reliable automations, documenting controls, and handing over something teams can run
+                every month without stress.
+              </p>
+
+              <p>
+                <strong>Near-term goal:</strong> join a team where I can own reporting flows (SAP → Excel/SQL/Python),
+                modernize checks, and tighten compliance while keeping things simple for end users.
+                <strong> Longer-term:</strong> grow into a Finance Systems/Operations role that bridges accounting,
+                engineering, and data, leading projects that shorten the close and improve the control
+                environment.
+              </p>
+
+              <p>
+                Outside work I keep active—<em>padel, strength training, bouldering, running, swimming</em>—and
+                I love weekend trips, photography, and video editing. Living in Bavaria means lakes and the
+                Alps are never far, which is perfect for recharging after a busy month-end.
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-3">
+                <a href={`${base}/assets/CV.pdf`} className="btn" download>Download CV (PDF)</a>
+                <Link href="/projects" className="btn-outline">View Projects</Link>
+              </div>
             </div>
           </div>
 
