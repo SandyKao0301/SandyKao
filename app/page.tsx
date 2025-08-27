@@ -21,6 +21,7 @@ export default function Page(){
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="#projects" className="btn">View Projects</Link>
               <Link href="/resume" className="btn-outline">Resume</Link>
+              <a href="/CV.pdf" className="btn-outline" download>Download CV (PDF)</a>
             </div>
           </div>
           <div className="md:col-span-5">
@@ -65,6 +66,34 @@ export default function Page(){
         </div>
       </header>
 
+      {/* About */}
+      <Section id="about" title="About" subtitle="Who I am and what I bring to finance + data roles.">
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="card">
+            <p className="text-gray-700 dark:text-gray-300">
+              I’m <strong>Yu-Hsuan (Sandy) Kao</strong>, a Finance & Data Analyst with experience in Europe and Asia.
+              I work at the intersection of <em>accounting</em> and <em>automation</em>—using SAP FI, Excel/VBA, Python, and SQL
+              to make month-end closes faster, reports more accurate, and compliance checks easier.
+            </p>
+            <p className="mt-3 text-gray-700 dark:text-gray-300">
+              I like measurable outcomes: −30% manual errors on month-end, 100% on-time vendor payments,
+              and reliable anomaly detection in working-hours data.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a href="/CV.pdf" className="btn" download>Download CV (PDF)</a>
+              <Link href="/projects" className="btn-outline">See case studies</Link>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {/* Replace these with real photos placed in /public/photos/ */}
+            <img src="/photos/portrait.jpg" alt="Sandy Kao portrait" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
+            <img src="/photos/work.jpg" alt="Sandy working" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
+            <img src="/photos/hobby.jpg" alt="Sandy hobby" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
+            <img src="/photos/travel.jpg" alt="Travel" className="rounded-2xl border border-gray-200/30 dark:border-gray-800/50" />
+          </div>
+        </div>
+      </Section>
+
       {/* Featured Projects */}
       <Section id="projects" title="Featured projects" subtitle="Real-world finance + data work with measurable outcomes.">
         <div className="grid md:grid-cols-3 gap-6">
@@ -83,7 +112,7 @@ export default function Page(){
           />
           <ProjectCard
             title="DCC-GARCH Brexit Risk Study"
-            subtitle="Modeled correlations and risk channels post‑Brexit"
+            subtitle="Modeled correlations and risk channels post-Brexit"
             tags={["R","Python","Time Series"]}
             href="/projects#dcc-garch"
           />
@@ -99,20 +128,20 @@ export default function Page(){
             loc:"Freising, Germany",
             period:"Aug 2024 – Aug 2025",
             bullets:[
-              "Automated month‑end reports using SAP/Excel (VBA), reducing manual errors by 30%.",
+              "Automated month-end reports using SAP/Excel (VBA), reducing manual errors by 30%.",
               "Supported HR tracking employees’ working hours to ensure labor law compliance.",
               "Prepared GL accounts and reconciliations under HGB/IFRS.",
-              "Served as Intern Chair; onboarding support and cross‑department events."
+              "Served as Intern Chair; onboarding support and cross-department events."
             ]
           },
           {
             role:"Accounting Assistant",
-            org:"Mami Love (E‑Commerce)",
+            org:"Mami Love (E-Commerce)",
             loc:"Taipei, Taiwan",
             period:"Sep 2021 – Aug 2022",
             bullets:[
               "Managed AP/AR, reconciling €700K+ in monthly transactions.",
-              "Achieved 100% on‑time vendor payments by resolving invoice disputes (50+ partners).",
+              "Achieved 100% on-time vendor payments by resolving invoice disputes (50+ partners).",
               "Assisted in financial closings: ledger matching and credit card validation."
             ]
           },
@@ -122,7 +151,7 @@ export default function Page(){
             loc:"Taipei, Taiwan",
             period:"Jul 2021 – Aug 2021",
             bullets:[
-              "Processed high‑volume transactions; fraud‑prevention protocols.",
+              "Processed high-volume transactions; fraud-prevention protocols.",
               "Advised clients on account services."
             ]
           },
@@ -144,7 +173,7 @@ export default function Page(){
                 <div className="text-gray-500">Tamkang University, Taiwan · Sep 2018 – Jun 2022</div>
               </li>
             </ul>
-            <div className="mt-3 text-sm"><span className="font-medium">Coursework:</span> CFA Level 1, Advanced Corporate Finance, Computational Macroeconomics, Continuous‑time Derivatives Pricing, Applied Statistics</div>
+            <div className="mt-3 text-sm"><span className="font-medium">Coursework:</span> CFA Level 1, Advanced Corporate Finance, Computational Macroeconomics, Continuous-time Derivatives Pricing, Applied Statistics</div>
           </div>
           <div className="card">
             <h3 className="font-semibold">Leadership & Research</h3>
@@ -155,7 +184,7 @@ export default function Page(){
               </li>
               <li>
                 <div className="font-medium">Government Sponsored Researcher — Taiwan MoST</div>
-                <div className="text-gray-500">Aug 2021 – Mar 2022 · DCC‑GARCH, risk mitigation & market strategy</div>
+                <div className="text-gray-500">Aug 2021 – Mar 2022 · DCC-GARCH, risk mitigation & market strategy</div>
               </li>
               <li>
                 <div className="font-medium">Project Leader — Hult Prize</div>
