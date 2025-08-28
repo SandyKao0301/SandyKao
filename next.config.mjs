@@ -1,12 +1,13 @@
 // next.config.mjs
-const isProd = process.env.NODE_ENV === 'production';
-const repo = 'SandyKao';
+/** @type {import('next').NextConfig} */
+const isCI = !!(process.env.GITHUB_ACTIONS || process.env.CI);
+const base = isCI ? "/SandyKao" : "";
 
 export default {
-  output: 'export',
+  output: "export",
   images: { unoptimized: true },
-  basePath: isProd ? `/${repo}` : '',
-  assetPrefix: isProd ? `/${repo}/` : '',
+  basePath: base,
+  assetPrefix: base,
   trailingSlash: true,
-  env: { NEXT_PUBLIC_BASE_PATH: isProd ? `/${repo}` : '' }
+  reactStrictMode: true,
 };
