@@ -20,10 +20,8 @@ const languages = [
 export default function SkillsShowcase() {
   return (
     <div className="skillcard relative rounded-2xl border border-emerald-500/15 bg-white/60 dark:bg-slate-900/50 shadow-xl backdrop-blur-md overflow-hidden">
-      {/* Subtle shifting background */}
+      {/* Subtle shifting background (no sheen) */}
       <div className="bg-shift pointer-events-none absolute inset-0 opacity-[0.55]" />
-      {/* Gentle sheen pass (rare + light) */}
-      <div className="sheen pointer-events-none absolute inset-0" />
 
       <div className="relative p-4 sm:p-5">
         <h3 className="font-semibold tracking-tight text-slate-800 dark:text-slate-100">Skills at a glance</h3>
@@ -76,10 +74,7 @@ export default function SkillsShowcase() {
                   aria-valuemax={100}
                   aria-label={`${lang.name} proficiency`}
                 >
-                  <div
-                    className="h-full bar"
-                    style={{ width: `${lang.pct}%` }}
-                  />
+                  <div className="h-full bar" style={{ width: `${lang.pct}%` }} />
                 </div>
               </div>
             ))}
@@ -118,27 +113,6 @@ export default function SkillsShowcase() {
           0%   { background-position: 0% 50%; }
           50%  { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
-        }
-
-        /* Sheen: a faint sweep every ~14s */
-        .sheen::before {
-          content: "";
-          position: absolute;
-          top: -20%;
-          bottom: -20%;
-          left: -30%;
-          width: 28%;
-          transform: rotate(10deg) translateX(-140%);
-          background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 45%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0.22) 55%, transparent 100%);
-          filter: blur(1.5px);
-          animation: sweep 14s ease-in-out infinite;
-        }
-        @keyframes sweep {
-          0%   { transform: rotate(10deg) translateX(-140%); opacity: 0; }
-          12%  { opacity: 1; }
-          30%  { transform: rotate(10deg) translateX(140%); opacity: 0.9; }
-          35%  { opacity: 0; }
-          100% { transform: rotate(10deg) translateX(140%); opacity: 0; }
         }
 
         .skillcard { overflow: hidden; }
