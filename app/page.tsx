@@ -63,6 +63,45 @@ export default function Page() {
               <Link href="/resume" className="btn-outline">Resume</Link>
               <Link href="/projects" className="btn-outline">View Projects</Link>
             </div>
+
+            {/* Social row — directly under the CTAs */}
+            <div className="mt-3 flex flex-wrap gap-3">
+              <a
+                href="https://www.linkedin.com/in/yu-hsuan-kao/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline inline-flex items-center gap-2"
+                aria-label="LinkedIn profile"
+              >
+                {/* LinkedIn logo */}
+                <svg
+                  className="w-5 h-5 fill-current"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                >
+                  <path d="M1.146 0C.513 0 0 .526 0 1.175v13.65C0 15.474.526 16 1.146 16h13.708c.63 0 1.146-.526 1.146-1.175V1.175C16 .526 15.474 0 14.854 0H1.146zM4.943 13.394H2.542V6.169h2.401v7.225zM3.743 5.092c-.808 0-1.327-.554-1.327-1.248 0-.709.534-1.248 1.356-1.248.822 0 1.327.539 1.342 1.248 0 .694-.519 1.248-1.371 1.248zM13.458 13.394h-2.4V9.526c0-.963-.349-1.62-1.221-1.62-.666 0-1.063.443-1.237.87-.063.155-.079.369-.079.583v4.035h-2.4V6.169h2.4v.999c.32-.493.891-1.193 2.165-1.193 1.58 0 2.764 1.032 2.764 3.252v4.167z"/>
+                </svg>
+                LinkedIn
+              </a>
+
+              <a
+                href="https://github.com/SandyKao0301"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline inline-flex items-center gap-2"
+                aria-label="GitHub profile"
+              >
+                {/* GitHub logo */}
+                <svg
+                  className="w-5 h-5 fill-current"
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                >
+                  <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.074.55-.174.55-.388 0-.19-.007-.693-.01-1.36-2.23.485-2.7-1.076-2.7-1.076-.364-.924-.89-1.17-.89-1.17-.727-.498.055-.488.055-.488.804.057 1.228.826 1.228.826.715 1.225 1.874.871 2.33.666.072-.518.28-.872.508-1.073-1.78-.203-3.64-.89-3.64-3.96 0-.874.312-1.588.823-2.148-.083-.203-.357-1.02.078-2.125 0 0 .672-.215 2.2.82a7.62 7.62 0 0 1 2-.27c.68.003 1.36.093 2 .27 1.53-1.035 2.2-.82 2.2-.82.436 1.105.162 1.922.08 2.125.512.56.822 1.274.822 2.148 0 3.08-1.863 3.755-3.64 3.957.287.248.543.735.543 1.482 0 1.07-.01 1.93-.01 2.194 0 .216.146.466.553.386A8.002 8.002 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                GitHub
+              </a>
+            </div>
           </div>
 
           <div className="md:col-span-5">
@@ -232,7 +271,7 @@ export default function Page() {
             href="/projects#month-end-automation"
             cta="View project"
           />
-          <ProjectCard
+        <ProjectCard
             title="Working-hours Compliance Tracker"
             subtitle="Validated HR hours against policy & labor limits; anomaly detection"
             tags={["ADP", "Excel", "Automation"]}
