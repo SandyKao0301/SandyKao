@@ -55,27 +55,34 @@ export default function Page() {
               />
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              {/* 3) Shimmer on primary CTA */}
-              <a href={`${base}/assets/CV.pdf`} className="btn btn-shimmer" download>
+            {/* Unified grid for both rows so widths line up */}
+            <div className="mt-6 grid grid-cols-6 gap-3 max-w-xl">
+              {/* Top line: 3 equal buttons (each col-span-2 = 1/3) */}
+              <a
+                href={`${base}/assets/CV.pdf`}
+                className="btn btn-shimmer w-full col-span-6 sm:col-span-2"
+                download
+              >
                 Download CV
               </a>
-              <Link href="/resume" className="btn-outline">Resume</Link>
-              <Link href="/projects" className="btn-outline">View Projects</Link>
-            </div>
+              <Link href="/resume" className="btn-outline w-full col-span-6 sm:col-span-2">
+                Resume
+              </Link>
+              <Link href="/projects" className="btn-outline w-full col-span-6 sm:col-span-2">
+                View Projects
+              </Link>
 
-            {/* Social row — directly under the CTAs */}
-            <div className="mt-3 flex flex-wrap gap-3">
+              {/* Second line: 2 bigger buttons (each col-span-3 = 1/2) */}
               <a
                 href="https://www.linkedin.com/in/yu-hsuan-kao/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline inline-flex items-center gap-2"
+                className="btn-outline inline-flex items-center justify-center gap-2 w-full col-span-6 sm:col-span-3 py-3"
                 aria-label="LinkedIn profile"
               >
-                {/* LinkedIn logo */}
+                {/* LinkedIn logo (24px) */}
                 <svg
-                  className="w-5 h-5 fill-current"
+                  className="w-6 h-6 fill-current"
                   viewBox="0 0 16 16"
                   aria-hidden="true"
                 >
@@ -88,12 +95,12 @@ export default function Page() {
                 href="https://github.com/SandyKao0301"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline inline-flex items-center gap-2"
+                className="btn-outline inline-flex items-center justify-center gap-2 w-full col-span-6 sm:col-span-3 py-3"
                 aria-label="GitHub profile"
               >
-                {/* GitHub logo */}
+                {/* GitHub logo (24px) */}
                 <svg
-                  className="w-5 h-5 fill-current"
+                  className="w-6 h-6 fill-current"
                   viewBox="0 0 16 16"
                   aria-hidden="true"
                 >
@@ -271,7 +278,7 @@ export default function Page() {
             href="/projects#month-end-automation"
             cta="View project"
           />
-        <ProjectCard
+          <ProjectCard
             title="Working-hours Compliance Tracker"
             subtitle="Validated HR hours against policy & labor limits; anomaly detection"
             tags={["ADP", "Excel", "Automation"]}
