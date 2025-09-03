@@ -61,15 +61,21 @@ export default function Page() {
               {/* Top line: 3 equal buttons (each col-span-2 = 1/3) */}
               <a
                 href={`${base}/assets/CV.pdf`}
-                className="btn btn-shimmer w-full col-span-6 sm:col-span-2"
+                className="btn btn-shimmer inline-flex items-center justify-center w-full col-span-6 sm:col-span-2"
                 download
               >
                 Download CV
               </a>
-              <Link href="/resume" className="btn-outline w-full col-span-6 sm:col-span-2">
+              <Link
+                href="/resume"
+                className="btn-outline inline-flex items-center justify-center w-full col-span-6 sm:col-span-2"
+              >
                 Resume
               </Link>
-              <Link href="/projects" className="btn-outline w-full col-span-6 sm:col-span-2">
+              <Link
+                href="/projects"
+                className="btn-outline inline-flex items-center justify-center w-full col-span-6 sm:col-span-2"
+              >
                 View Projects
               </Link>
 
