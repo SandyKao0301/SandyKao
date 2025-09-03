@@ -20,8 +20,8 @@ const languages = [
 export default function SkillsShowcase() {
   return (
     <div className="skillcard relative rounded-2xl border border-emerald-500/15 bg-white/60 dark:bg-slate-900/50 shadow-xl backdrop-blur-md overflow-hidden">
-      {/* Subtle shifting background (no sheen) */}
-      <div className="bg-shift pointer-events-none absolute inset-0 opacity-[0.55]" />
+      {/* Subtle shifting background (further dialed down) */}
+      <div className="bg-shift pointer-events-none absolute inset-0 opacity-[0.35]" />
 
       <div className="relative p-4 sm:p-5">
         <h3 className="font-semibold tracking-tight text-slate-800 dark:text-slate-100">Skills at a glance</h3>
@@ -33,14 +33,7 @@ export default function SkillsShowcase() {
               key={g.title}
               className="rounded-xl border border-emerald-500/20 bg-white/60 dark:bg-white/5 p-3"
             >
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-lg border border-emerald-500/30 bg-white/70 dark:bg-white/10">
-                  <svg viewBox="0 0 20 20" className="h-3.5 w-3.5 text-emerald-600">
-                    <path d="M5 11l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <div className="text-gray-700 dark:text-gray-200 font-medium">{g.title}</div>
-              </div>
+              <div className="text-gray-700 dark:text-gray-200 font-medium">{g.title}</div>
 
               <div className="mt-2 flex flex-wrap gap-2">
                 {g.pills.map((p) => (
@@ -88,13 +81,17 @@ export default function SkillsShowcase() {
 
       {/* Scoped styles */}
       <style jsx>{`
-        /* Background: very slow left→right color shift with soft vignette */
+        /* Background: very slow left→right color shift with a light vignette */
         .bg-shift {
           background:
-            radial-gradient(120% 80% at 10% 10%, rgba(255,255,255,0.7), transparent 60%),
-            linear-gradient(90deg, rgba(16,185,129,0.18), rgba(20,184,166,0.18), rgba(51,134,199,0.16), rgba(16,185,129,0.18));
+            radial-gradient(120% 80% at 10% 10%, rgba(255,255,255,0.55), transparent 60%),
+            linear-gradient(90deg,
+              rgba(16,185,129,0.12),
+              rgba(20,184,166,0.12),
+              rgba(51,134,199,0.10),
+              rgba(16,185,129,0.12));
           background-size: 120% 100%, 200% 100%;
-          animation: shift 28s ease-in-out infinite;
+          animation: shift 30s ease-in-out infinite;
         }
         @keyframes shift {
           0%   { background-position: 0% 0%,   0% 50%; }
@@ -102,11 +99,14 @@ export default function SkillsShowcase() {
           100% { background-position: 0% 0%,   0% 50%; }
         }
 
-        /* Progress bar: subtle moving gradient for a hint of life */
+        /* Progress bar: subtle moving gradient */
         .bar {
-          background: linear-gradient(90deg, rgba(16,185,129,1), rgba(20,184,166,1), rgba(59,130,246,0.9));
+          background: linear-gradient(90deg,
+            rgba(16,185,129,1),
+            rgba(20,184,166,1),
+            rgba(59,130,246,0.9));
           background-size: 180% 100%;
-          animation: barShift 10s ease-in-out infinite;
+          animation: barShift 12s ease-in-out infinite;
           border-radius: inherit;
         }
         @keyframes barShift {
