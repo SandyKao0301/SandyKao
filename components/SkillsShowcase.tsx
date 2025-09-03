@@ -20,8 +20,8 @@ const languages = [
 export default function SkillsShowcase() {
   return (
     <div className="skillcard relative rounded-2xl border border-emerald-500/15 bg-white/60 dark:bg-slate-900/50 shadow-xl backdrop-blur-md overflow-hidden">
-      {/* Subtle shifting background (further dialed down) */}
-      <div className="bg-shift pointer-events-none absolute inset-0 opacity-[0.35]" />
+      {/* Subtle shifting background */}
+      <div className="bg-shift pointer-events-none absolute inset-0 opacity-[0.30]" />
 
       <div className="relative p-4 sm:p-5">
         <h3 className="font-semibold tracking-tight text-slate-800 dark:text-slate-100">Skills at a glance</h3>
@@ -67,7 +67,15 @@ export default function SkillsShowcase() {
                   aria-valuemax={100}
                   aria-label={`${lang.name} proficiency`}
                 >
-                  <div className="h-full bar" style={{ width: `${lang.pct}%` }} />
+                  {/* Static (no animation) */}
+                  <div
+                    className="h-full rounded-full"
+                    style={{
+                      width: `${lang.pct}%`,
+                      background:
+                        "linear-gradient(90deg, rgba(16,185,129,1), rgba(20,184,166,1), rgba(59,130,246,0.9))",
+                    }}
+                  />
                 </div>
               </div>
             ))}
@@ -81,38 +89,22 @@ export default function SkillsShowcase() {
 
       {/* Scoped styles */}
       <style jsx>{`
-        /* Background: very slow left→right color shift with a light vignette */
+        /* Background: slow, very light left→right color shift */
         .bg-shift {
           background:
-            radial-gradient(120% 80% at 10% 10%, rgba(255,255,255,0.55), transparent 60%),
+            radial-gradient(120% 80% at 10% 10%, rgba(255,255,255,0.5), transparent 60%),
             linear-gradient(90deg,
-              rgba(16,185,129,0.12),
-              rgba(20,184,166,0.12),
-              rgba(51,134,199,0.10),
-              rgba(16,185,129,0.12));
+              rgba(16,185,129,0.10),
+              rgba(20,184,166,0.10),
+              rgba(51,134,199,0.09),
+              rgba(16,185,129,0.10));
           background-size: 120% 100%, 200% 100%;
-          animation: shift 30s ease-in-out infinite;
+          animation: shift 36s ease-in-out infinite;
         }
         @keyframes shift {
           0%   { background-position: 0% 0%,   0% 50%; }
           50%  { background-position: 0% 0%, 100% 50%; }
           100% { background-position: 0% 0%,   0% 50%; }
-        }
-
-        /* Progress bar: subtle moving gradient */
-        .bar {
-          background: linear-gradient(90deg,
-            rgba(16,185,129,1),
-            rgba(20,184,166,1),
-            rgba(59,130,246,0.9));
-          background-size: 180% 100%;
-          animation: barShift 12s ease-in-out infinite;
-          border-radius: inherit;
-        }
-        @keyframes barShift {
-          0%   { background-position: 0% 50%; }
-          50%  { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
         }
 
         .skillcard { overflow: hidden; }
