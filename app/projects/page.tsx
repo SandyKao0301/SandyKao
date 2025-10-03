@@ -125,10 +125,6 @@ export default function ProjectsPage() {
         </article>
       </div>
 
-      <p className="no-print mt-8 text-xs text-gray-500">
-        Note: When publishing code publicly, use <em>mocked</em> datasets to
-        respect confidentiality.
-      </p>
     </Section>
   );
 }
